@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"987c4a3fa0","applicationID":"4311669","transactionName":"c1kIFhFdCFVRERhXDkdYCg0CVhcWXQ1TVhk=","queueTime":1,"applicationTime":54,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=p(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var s=f[m[n]];return s&&s.push([w,n,r,i]),i}function l(e,t){g[e]=p(e).concat(t)}function p(e){return g[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",m[n]=t,t in f||(f[t]=[])})}var g={},m={},w={on:l,emit:n,get:d,listeners:p,context:t,buffer:v};return w}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},l=t.exports=o();l.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(m,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=s.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document,l="addEventListener",p="attachEvent",d=f.XMLHttpRequest,v=d&&d.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:d,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var g=""+location,m={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-984.min.js"},w=d&&v&&v[l]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:g,features:{},xhrWrappable:w};s[l]?(s[l]("DOMContentLoaded",i,!1),f[l]("load",r,!1)):(s[p]("onreadystatechange",o),f[p]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+    <title>ClamavNet</title>
+    <link data-turbolinks-track="true" href="/assets/application-9726a31fb6a5bc40fa4829f2173aedb8.css" media="all" rel="stylesheet" />
+    <script data-turbolinks-track="true" src="/assets/application-561bbcc0c594666071c8a8f62c81d087.js"></script>
+    <script data-turbolinks-track="true" src="/assets/google-analytics-82ca3c1c0c97c363ce4af039f3df9bf2.js"></script>
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="1TFToDxxM/CpLcfwyY4Y/j5UkQW2qdSFM9/D/1dE66s=" name="csrf-token" />
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="80">
+    <div class="wrap">
+      <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img alt="Home" src="/assets/clamav-brand-fda56f16586ca585c00943b0922d0efa.png" width="20"></a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/downloads">Download</a></li>
+            <li><a href="/documentation">Documentation</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Scrollspy navigation -->
+<div id="navbar" role="navigation" class="scrollspy-nav">
+  <ul class="nav">
+    <li><a href="#sourcecode">Source Code</a></li>
+    <li><a href="#otherversions">Alternate Versions</a></li>
+    <li><a href="#tools">Tools</a></li>
+  </ul>
+</div><br>
+
+
+<div class="container-fluid">
+  <div class="row top-row section" id="sourcecode"> <!-- Source Code -->
+    <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 heading">
+      <h1 class="title">Download</h1>
+      <h2 class="gray">Source code</h2>
+      <div class="heading">
+        <p><em>Download the official source code using the links below. We recommend running the ClamAV Stable Version on production systems.<br>Not the right format for your operating system? Find Win32, MacOS X, Linux &amp; BSD signatures in the <a class="red" href="#otherversions">Alternate Versions</a> section.</em></p>
+      </div>
+
+          <h3>The latest stable release is
+            <strong>0.99.2 </strong></h3>
+          <table class="table table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>file</th>
+              <th>Modified</th>
+              <th>Size</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                      <td><a href="/downloads/production/clamav-0.99.2.tar.gz">clamav-0.99.2.tar.gz</a></td>
+                      <td>2016-05-03 17:30:19 UTC </td>
+                      <td>15.4 MB </td>
+                      <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2.tar.gz"></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="/downloads/production/clamav-0.99.2.tar.gz.sig">clamav-0.99.2.tar.gz.sig</a></td>
+                      <td>2016-05-03 17:30:26 UTC </td>
+                      <td>72 bytes </td>
+                      <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2.tar.gz.sig"></a></td>
+                    </tr>
+            </tbody>
+          </table>
+
+      <div id="release_candiates">
+      </div>
+
+
+
+      <div class="panel-group top-space" id="accordion">
+        <div class="panel panel-link">  <!-- collapseCVD-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseCVD">Virus Database</a>
+            </h4>
+          </div>
+          <div id="collapseCVD" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>For ClamAV to work properly, both the ClamAV engine and the ClamAV Virus Database (CVD) must be kept up
+                to date.</p>
+
+              <p>Freshclam should perform these updates automatically. Instructions for setting up Freshclam can be
+                found in the
+                <a class="gray" href="https://github.com/vrtadmin/clamav-faq/raw/master/manual/clamdoc.pdf" target="_blank" download>ClamAV
+                  Manual</a> or in the <a class="gray" href="/documentation">documentation</a> section.
+                <br>If your network is segmented or the end hosts are unable to reach the Internet, you should
+                investigate setting up a <a class="gray" href="documents/private-local-mirrors">private local mirror</a>.
+                If this
+                is not viable, you may use these direct download
+                links:&nbsp;&nbsp;<em><a class="dark-gray" href="http://database.clamav.net/main.cvd" download>main.cvd</a>
+                | <a class="dark-gray" href="http://database.clamav.net/daily.cvd" download>daily.cvd</a> |
+                <a class="dark-gray" href="http://database.clamav.net/bytecode.cvd" download>bytecode.cvd</a></em></p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-link">  <!-- collapse Upgrading-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseUpgrading">Upgrading</a>
+            </h4>
+          </div>
+          <div id="collapseUpgrading" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>Be sure to read the
+                <a class="red" href="/documents/upgrading-clamav" target="_blank">Upgrade Instructions</a> prior to
+                updating ClamAV. Sign up for notifications regarding newest stable releases and betas, by subscribing to
+                the
+                <a class="red" href="http://lists.clamav.net/cgi-bin/mailman/listinfo/clamav-announce" target="_blank">clamav-announce</a>
+                mailing list.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-link"> <!-- collapseDev-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseDev" class="">Development Releases</a>
+            </h4>
+          </div>
+          <div id="collapseDev" class="panel-collapse collapse" style="height: auto;">
+            <div class="panel-body">
+              <h4><em>Release Candidates</em></h4>
+                  <p>There are currently no release candidates available for download.</p>
+              <hr>
+              <h4><em>Beta Versions</em></h4>
+                  <p>There are currently no beta versions available for download.</p>
+              <hr>
+              <h4><em>Changelog</em></h4>
+              <p>The <a href="https://github.com/vrtadmin/clamav-devel/blob/master/ChangeLog" class="red" target="_blank">ChangeLog</a> lists all recent fixes and improvements.</p>
+              <p>Clone the Git Repository under UNIX with one of these commands:</p>
+              <ul>
+                <li>Smart-HTTP Protocol (Git 1.7+)&nbsp;&nbsp;<code>$ git clone https://github.com/vrtadmin/clamav-devel</code></li>
+                <li>Git Native Prococol (Git &lt; 1.7)&nbsp;&nbsp;&nbsp;<code>$ git clone git://github.com/vrtadmin/clamav-devel</code></li>
+                <li>Windows users may want to install <a class="red" href="http://msysgit.github.io/" target="_blank">Git on Windows</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-link">  <!-- collapse Previous Releases-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapsePreviousReleases">Previous Stable Releases</a>
+            </h4>
+          </div>
+          <div id="collapsePreviousReleases" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="panel-group" id="accordion_old_releases">
+                <div class="panel panel-link">
+                  <div class="previous_releases"></div>
+                </div>
+
+              </div>
+              <p> You can find previous releases on <a href="http://sourceforge.net/projects/clamav/files/clamav/">sourceforge</a></p>
+
+              <p>Refer to the <a class="red" href="/documents/upgrading-clamav" target="_blank">Upgrade Instructions</a> for
+                reference.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-link">  <!-- collapse Upgrading-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseByteCode">Bytecode Compiler</a>
+            </h4>
+          </div>
+          <div id="collapseByteCode" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p><strong class="red">Git 1.7+</strong> <span class="hidden-xs">&nbsp;&nbsp;&nbsp;</span><br class="visible-xs"/>
+                <span class="scroll"><code>$ git clone git://github.com/vrtadmin/clamav-bytecode-compiler</code></span></p>
+
+              <p><strong class="red">Git &lt; 1.7</strong>
+                <span class="hidden-xs">&nbsp;&nbsp;&nbsp;</span><br class="visible-xs"/>
+                <span class="scroll"><code>$ git clone https://github.com/vrtadmin/clamav-bytecode-compiler</code></span></p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="panel panel-link">  <!-- collapse Upgrading-->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapsePGP">Talos PGP Public Key</a>
+            </h4>
+          </div>
+          <div id="collapsePGP" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="code">
+                    <pre>
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2
+
+mQENBFVMXOsBCAC87nrUFeyApoWBwPtxK9jDjjR2bmuDjIoGCwXLwA7+xQbattwC
+rTJZYAbNQxgGimJWluZHU9EcRtsUvXz4QvxdV69vbW7Wr6rvNQLI77fzkm6iVRTF
+gigMpqXXVaqgwNmiowyNKSx215To12RxnP3iPmcG/zVM8fFIKny2haDku4AIV8AL
+KJuFvHIrq++EWRymCZ64R4nPx0JD83VjGS/lITXCR8yy+QSoc62F2moptmHwwNDy
+F9iTnC67cbvSuNFdMy1tGsZMOkG0mWa91+DD9IrmJPMrQFwjP96j2qR6vyVFPFRe
+qJsvGfRxf/fS2oztR6guM1yYjbkV8lmO9XtdABEBAAG0JXZ1bG5kZXZAY2lzY28u
+Y29tIDx2dWxuZGV2QGNpc2NvLmNvbT6JATkEEwEIACMFAlVMXOsCGwMHCwkIBwMC
+AQYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOES7OCzuzpxAQB/9tld+sdF/9EdG3RT+N
+HV37Ko2V7WcbUBubvrD4s4x2XiBsu8bsO3cHLgGCKF+CUWcfdK8bb1/JCWc0/wKG
+OQNE+fQqkVKSiLc/0Uqe0mlh9d0WyhmvG5K7zr7qVIfSyFhU/KXyCsDGTUc2CUIe
+8etdw9LEhSN1fLvf8Si5YaMdfv+rekw/w2X5RjP60IyptNowcKdPZVCWcCtaV2Lb
+lJwr3KhbG2nIOrEUeFgWAW4rdNUpWall+CMQvY8Wd/ZT8pmKJfbS/zzVLfYjBAkU
+ZFjq62hpKaXdJy6UAus6j6lWeuFkvENiqZ13nMiE4fjik4d+zGnJ/UxQdAJ9QE2U
+1TyguQENBFVMXOsBCADYCieBysDk1swxxd7TzXDRqzpYFj/lUlTZXkl3vaqMGM2r
+e5k1Ep9F9Ec45+7LQKyFgEcJ8tGyHB78K2yuJJ5Gne8ojmTFFE5k3sS1WWNUQZ9r
+kzY//d/d7pTTODCXlAIS88ZBwg9k8K1UBBsVsDkoEfFXZpP0ilJplTv9kUtVHdCO
+uX/6273SMYGyqPe3OlpOd7gvtzcCsyf4skiT8fRmW3lu1LSDiFoFPOjRu/vFlvfb
+COa6LVqyadqWjgtxfi34bjYstlHNExCFTdVwr6ySrxk82bq4lj9Vwr76Eo4NyUd1
+9Pgme2+CoHw9/yKX+/fjDVTiRLr3CxgDLllINcVzABEBAAGJAR8EGAEIAAkFAlVM
+XOsCGwwACgkQzhEuzgs7s6cB/gf/fmE0q69/KfoyWwJThgWBnOTxWPTOi9v5aL4A
+fHX5pW7bSzjANoDQGnWlXB7FX1d0uFgsxbN796mI2FMRS2haGSBLXT46bKiV5Dp5
+W4hfQj6jWI5aF+cZMzsEDKj8FT49fR/dPg3P6jbuqHmQDgOK9lznq6dynqcRiAOK
+RbQ/fHePpz0vf8Y0lQyLvgjgXtLp00FZX5pXM7JPe6u7nm1calDbN6MUJsHGSlLO
+6RZURY6jLEEZpnGVeuOtkBU03ukE/VtuJLTIgFHVu9AuipXMFd+I+1WDktBngXOZ
+tGrIfgFfaj9aDGgUW4TLqrskDqlf3fnH4mr9I49jxgfKX9/VXQ==
+=EPQf
+-----END PGP PUBLIC KEY BLOCK-----
+                    </pre>
+</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row latest white-bg shadow-bg center banner">&nbsp;</div>
+
+<div class="row" id="otherversions"> <!-- Alternate Versions Heading -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h2 class="section-title">Alternate Versions of ClamAV</h2>
+
+    <p class="gray">Various third parties have developed versions of ClamAV to work on a variety of operating systems.
+      Several of these are listed below. Installation instructions for many operating systems can be found in
+      the <a class="gray" href="/documentation">documentation</a>.</p>
+
+    <div class="col-sm-12">
+      <div class="btn-group version-buttons">
+        <button type="button" class="btn btn-link" id="dwn-win-btn" onclick="showVersions('dwn-win','dwn-win-btn');">
+          <span>Windows</span></button>
+        <button type="button" class="btn btn-link" id="dwn-linux-btn" onclick="showVersions('dwn-linux','dwn-linux-btn');">
+          <span>Linux</span></button>
+        <button type="button" class="btn btn-link" id="dwn-bsd-btn" onclick="showVersions('dwn-bsd','dwn-bsd-btn');">
+          <span>BSD</span></button>
+        <button type="button" class="btn btn-link" id="dwn-solaris-btn" onclick="showVersions('dwn-solaris','dwn-solaris-btn');">
+          <span>Solaris</span></button>
+        <button type="button" class="btn btn-link" id="dwn-mac-btn" onclick="showVersions('dwn-mac','dwn-mac-btn');">
+          <span>Mac OS X</span></button>
+      </div>
+    </div>
+  </div>
+</div><br>
+<div class="row version" id="dwn-win"> <!-- Windows -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Windows Signatures</h5>
+
+    <div class="panel-group" id="accordionWin">
+      <div class="panel panel-link"> <!-- collapseWin32-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionWin" href="#collapseWin32"><span class="red">Win32</span></a>
+          </h4>
+        </div>
+        <div id="collapseWin32" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV downloads for Win32</p>
+                <table class="table table-condensed table-hover">
+                  <thead>
+                  <tr>
+                    <th>file</th>
+                    <th>Modified</th>
+                    <th>Size</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-win32.zip.sig">clamav-0.99.2-win32.zip.sig</a></td>
+                            <td>2016-05-03 17:28:41 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-win32.zip.sig"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-win32.msi">clamav-0.99.2-win32.msi</a></td>
+                            <td>2016-05-03 17:29:51 UTC </td>
+                            <td> 4.7 MB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-win32.msi"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamunrar-0.99.2-win32.zip.sig">clamunrar-0.99.2-win32.zip.sig</a></td>
+                            <td>2016-05-03 17:28:17 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamunrar-0.99.2-win32.zip.sig"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamunrar-0.99.2-win32.zip">clamunrar-0.99.2-win32.zip</a></td>
+                            <td>2016-05-03 17:29:01 UTC </td>
+                            <td>34.1 kB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamunrar-0.99.2-win32.zip"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-win32.zip">clamav-0.99.2-win32.zip</a></td>
+                            <td>2016-05-03 17:29:20 UTC </td>
+                            <td> 3.8 MB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-win32.zip"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-win32.msi.sig">clamav-0.99.2-win32.msi.sig</a></td>
+                            <td>2016-05-03 17:29:34 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-win32.msi.sig"></a></td>
+                          </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseClamWIN-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionWin" href="#collapseClamWin"><span class="red">Win64</span></a>
+          </h4>
+        </div>
+        <div id="collapseClamWin" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV downloads for Win64</p>
+                <table class="table table-condensed table-hover">
+                  <thead>
+                  <tr>
+                    <th>file</th>
+                    <th>Modified</th>
+                    <th>Size</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-x64.zip.sig">clamav-0.99.2-x64.zip.sig</a></td>
+                            <td>2016-05-03 17:28:47 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-x64.zip.sig"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-x64.msi">clamav-0.99.2-x64.msi</a></td>
+                            <td>2016-05-03 17:30:03 UTC </td>
+                            <td> 5.4 MB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-x64.msi"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamunrar-0.99.2-x64.zip.sig">clamunrar-0.99.2-x64.zip.sig</a></td>
+                            <td>2016-05-03 17:28:55 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamunrar-0.99.2-x64.zip.sig"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-x64.msi.sig">clamav-0.99.2-x64.msi.sig</a></td>
+                            <td>2016-05-03 17:29:41 UTC </td>
+                            <td>72 bytes </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-x64.msi.sig"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamunrar-0.99.2-x64.zip">clamunrar-0.99.2-x64.zip</a></td>
+                            <td>2016-05-03 17:29:07 UTC </td>
+                            <td>37.8 kB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamunrar-0.99.2-x64.zip"></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="/downloads/production/clamav-0.99.2-x64.zip">clamav-0.99.2-x64.zip</a></td>
+                            <td>2016-05-03 17:29:27 UTC </td>
+                            <td> 4.4 MB </td>
+                            <td><a class="glyphicon glyphicon-arrow-down" href="/downloads/production/clamav-0.99.2-x64.zip"></a></td>
+                          </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseImmunet-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionWin" href="#collapseImmunet"><span class="red">Windows Antivirus</span></a>
+          </h4>
+        </div>
+        <div id="collapseImmunet" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Immunet, powered by ClamAV is a fast, fully featured Windows desktop Anti-Virus (AV) solution that
+              utilizes the power of advanced cloud based detection techniques and the strength of the time tested ClamAV
+              engine. This unique combination of technologies allows for a highly effective approach to today’s fast
+              moving malware threats.</p>
+            <h4>Features</h4>
+            <ul>
+              <li>Real-time Detection</li>
+              <li>Scheduled Scanning</li>
+              <li>Intelligent Scanning - Fast and configurable smart scans</li>
+              <li>Custom Detection - Using the standard ClamAV signature language</li>
+              <li>Advanced Archive and Packer Support</li>
+              <li>Fast and Light System Footprint</li>
+              <li>Quarantine</li>
+            </ul>
+            <h4>Visit the Immunet <a class="red" href="http://www.immunet.com/free/index.html">website</a>:</h4>
+            <a href="http://www.immunet.com/free/index.html"><img src="../assets/immunet.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row version" id="dwn-linux"> <!-- Linux Versions -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Linux Signatures</h5>
+
+    <div class="panel-group" id="accordionLinux">
+      <div class="panel panel-link"> <!-- collapseUbuntu-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseUbuntu"><span class="red">Ubuntu</span></a>
+          </h4>
+        </div>
+        <div id="collapseUbuntu" class="panel-collapse collapse">
+          <div class="panel-body">
+            <h4>Installing</h4>
+
+            <p>ClamAV can be found for Ubuntu in the apt repository. Run this command to install ClamAV:</p>
+
+            <p><code>apt-get install clamav</code></p>
+
+            <p>If you need clamd, you may also want to run:</p>
+
+            <p><code>apt-get install clamav-daemon</code></p>
+
+            <p>If you require support for scanning compressed RAR files you first need to enable the non-free archive,
+              and then you can install the RAR-plugin using:</p>
+
+            <p><code>apt-get install libclamunrar6</code></p><br>
+
+            <p>There are two classes of clamav packages available for Ubuntu users:</p>
+            <h4>Released Set</h4>
+
+            <p>The released set (release, *-updates, and *-security) are patched for security updates. Following
+              extensive testing of clamav and the packages that use it in the backports repository, they may be updated
+              to a newer version. These are official Ubuntu packages and supported by community developers.</p>
+            <h4>Backports</h4>
+
+            <p>The Ubuntu backports repository will contain the newest clamav version that has been at least lightly
+              tested to work with that version. These packages can be installed by enabling the backports repository on
+              your system.<br>Ubuntu packages are maintained by
+              <a href="https://wiki.ubuntu.com/MOTU/Clamav" class="red" target="_blank">Ubuntu MOTU Developers</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseDebian-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseDebian"><span class="red">Debian</span></a>
+          </h4>
+        </div>
+        <div id="collapseDebian" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV can be found in the apt repository. Run this command to install ClamAV:</p>
+
+            <p><code>apt-get install clamav</code></p>
+
+            <p>If you need clamd, you may also want to run:</p>
+
+            <p><code>apt-get install clamav-daemon</code></p>
+
+            <p>For the stable release, the packages are updated via the StableUpdates mechanism.</p>
+
+            <p>If you require support for scanning compressed RAR files you first need to enable the non-free archive
+              and then you can install the RAR-plugin using:</p>
+
+            <p><code>apt-get install libclamunrar6</code></p><br>
+
+            <p>To test the installation, you can try to scan the test files in the clamav-testfiles package.</p><br>
+
+            <p>The package maintainers can be reached at
+              <a class="red" href="mailto:pkg-clamav-devel@lists.alioth.debian.org">clamav-devel at
+                lists.alith.debian.org</a>. More info at
+              <a href="https://tracker.debian.org/pkg/clamav" class="red" target="_blank">tracker.debian.org/pkg/clamav</a>.
+
+            <p><br>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseSuSE-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseSuSE"><span class="red">SuSE</span></a>
+          </h4>
+        </div>
+        <div id="collapseSuSE" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV is included in the openSuSE distribution and in Novell’s SuSE Linux Enterprise products. To use
+              these packages, pick the subdirectory for your SuSE version from the
+              <a class="red" href="http://download.opensuse.org/repositories/security">openSuSe website</a></p>
+
+            <p>Use the update variant for openSuSE, add it to your installation as another repository using YaST or
+              zypper and give it a higher priority (lower number) than the repository that delivers the official
+              updates.<br>RPMs of new ClamAV versions for existing SuSE products are provided through the respective
+              online update channels.As these packages have to go through QA, it usually takes some time for a new
+              ClamAV source release to appear as an official RPM. For those who want the newest version, packages are
+              available from the security project in the openSuSE Build Service.</p>
+
+            <p>SuSE packages are maintained by <strong>Reinhard Max</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseRedHat-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseRedHat"><span class="red">RedHat &amp; Fedora</span></a>
+          </h4>
+        </div>
+        <div id="collapseRedHat" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>RedHat &amp; Fedora packages can be found at
+              <a class="red" href="http://packages.sw.be/clamav/">http://packages.sw.be/clamav</a></p>
+
+            <p>Make sure to read the FAQ before attempting to install the package.</p>
+
+            <p>RedHat &amp; Fedora packages are maintined by <a class="red" href="mailto:dag@wieers.com">Dag Wieers</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseFedora-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseFedora"><span class="red">Fedora &amp; EPEL</span></a>
+          </h4>
+        </div>
+        <div id="collapseFedora" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>EPEL writes ClamAV packages for Fedora (as well as EPEL-enabled CentOS and RHEL).</p>
+
+            <p>To install run:</p>
+
+            <p><code>yum install clamav</code></p>
+
+            <p>For
+              <a href="https://fedoraproject.org/wiki/EPEL" class="red" target="_blank">more information on EPEL</a>,
+              visit their wiki.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseMandriva-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseMandriva"><span class="red">Mandriva</span></a>
+          </h4>
+        </div>
+        <div id="collapseMandriva" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Official Mandriva packages are available through the software package manager or urpmi:</p>
+
+            <p><code>urpmi.update-update</code></p>
+
+            <p><code>urpmi-update-autoclamd</code></p>
+
+            <p>Officla Mandriva packages are maintained by Oden Erikkson.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseGentoo-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapseGentoo"><span class="red">Gentoo</span></a>
+          </h4>
+        </div>
+        <div id="collapseGentoo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV is available in portage under</p>
+            <code>/usr/portage/app-antivirus/clamav</code>
+
+            <p>If you run</p>
+
+            <p><code> emerge clamav</code></p>
+
+            <p>Install the version of ClamAV that Gentoo considers stable.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapsePardus-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionLinux" href="#collapsePardus"><span class="red">Pardus</span></a>
+          </h4>
+        </div>
+        <div id="collapsePardus" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>You can install ClamAV directly from the Package Manager, or run:</p>
+
+            <p><code>sudo pisi it clamav</code></p>
+
+            <p>Official packages are maintained by Ali Erdinc Koroglu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section version" id="dwn-bsd"> <!-- BSD Versions -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">BSD Signatures</h5>
+
+    <div class="panel-group" id="accordionBSD">
+      <div class="panel panel-link"> <!-- collapsefreebsd-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionBSD" href="#collapsefreebsd"><span class="red">FreeBSD</span></a>
+          </h4>
+        </div>
+        <div id="collapsefreebsd" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>There are two versions of ClamAV for FreeBSD available, <em>clamav</em> and <em>clamav-devel</em>.</p>
+
+            <p>Find both versions under <code>/usr/ports/security/</code></p>
+
+            <p>The official FreeBSD port is maintained by <em>Renato Botelho</em>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseopenbsd-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionBSD" href="#collapseopenbsd"><span class="red">OpenBSD</span></a>
+          </h4>
+        </div>
+        <div id="collapseopenbsd" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>ClamAV is part of the official ports tree starting from the 3.7 release.</p>
+
+            <p>The port is maintained by <em>Marc Balmer</em>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section version" id="dwn-solaris"> <!-- Solaris Versions -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Solaris Signatures</h5>
+
+    <div class="panel-group" id="accordionSolaris">
+      <div class="panel panel-link"> <!-- collapseOpenCSW-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionSolaris" href="#collapseOpenCSW"><span class="red">OpenCSW</span></a>
+          </h4>
+        </div>
+        <div id="collapseOpenCSW" class="panel-collapse">
+          <div class="panel-body">
+            <p>OpenCSW is a community software project for Solaris 8+ on both Sparc and x86. It packages more than 2000
+              popular open source titles and they can all easily be installed with dependency handling via pkgutil which
+              is modeled after Debians <em>apt-get</em>.</p>
+
+            <p><code># pkgutil -i clamav</code></p>
+
+            <p>More info on <a href="http://www.opencsw.org/" class="red" target="_blank">OpenCSW</a> can be found on
+              their website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section version" id="dwn-mac"> <!-- Mac OS X Versions -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Mac OS X Signatures</h5>
+
+    <div class="panel-group" id="accordionMac">
+      <div class="panel panel-link"> <!-- collapseClamxav-->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordionMac" href="#collapseClamxav"><span class="red">ClamXav</span></a>
+          </h4>
+        </div>
+        <div id="collapseClamxav" class="panel-collapse">
+          <div class="panel-body">
+            <p>ClamXav for Mac OS X is available for purchase on the Mac App Store. ClamXav can be set up as passive or
+              active: scan only the files you tell it to or your entire hard drive. You can also choose to activate
+              Sentry to monitor your hard drive and scan new files as they arrive.</p>
+
+            <p>The ClamXav project was developed by Mark Allan.
+
+            <p>
+
+            <p>To learn more, visit <a class="red" href="http://www.clamxav.com/" target="_blank">www.clamxav.com</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row top-border top-space" id="tools"> <!-- Third Party Tools -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h2 class="section-title">Third Party ClamAV Tools</h2>
+
+    <p class="gray">The software listed in this section is authored by third parties and not by the ClamAV Team.
+      Compatibility may vary.</p>
+
+    <div class="btn-group tool-buttons">
+      <button type="button" class="btn btn-link" id="MTA-btn" onclick="showTools('MTA','MTA-btn');"><span>MTA</span>
+      </button>
+      <button type="button" class="btn btn-link" id="POP3-btn" onclick="showTools('POP3','POP3-btn');"><span>POP3</span>
+      </button>
+      <button type="button" class="btn btn-link" id="webftp-btn" onclick="showTools('webftp','webftp-btn');">
+        <span>Web &amp; FTP</span></button>
+      <button type="button" class="btn btn-link" id="filesys-btn" onclick="showTools('filesys','filesys-btn');">
+        <span>Filesys</span></button>
+      <button type="button" class="btn btn-link" id="MUA-btn" onclick="showTools('MUA','MUA-btn');"><span>MUA</span>
+      </button>
+      <button type="button" class="btn btn-link" id="bindings-btn" onclick="showTools('bindings','bindings-btn');">
+        <span>Bindings</span></button>
+      <button type="button" class="btn btn-link" id="misc-btn" onclick="showTools('misc','misc-btn');">
+        <span>Misc.</span></button>
+    </div>
+
+  </div>
+</div>
+<div class="row section tool" id="MTA"> <!-- MTA -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <div class="panel-group">
+      <h5 class="gray">Generic Mail Transfer Agents</h5>
+
+      <div class="panel panel-link"> <!-- collapseOne -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">amavisd-new |
+              <em>clamd, clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+          <div class="panel-body">amavisd-new is a rewritten version of amavis maintained by Mark Martinec. clamscan is
+            enabled automatically if clamscan binary is found at amavisd-new startup time. clamd is activated by
+            uncommenting its entry in the @av_scanners list, file /etc/amavisd.conf. You can generate some nifty stats
+            from amavisd log files using”:[amavis-stats [amavis-stats | get
+            <a class="blue" href="http://www.ijs.si/software/amavisd/">amavisd-new</a>
+          </div>
+        </div>
+      </div>
+      <h5 class="gray">Sendmail</h5>
+
+      <div class="panel panel-link"> <!-- collapseTwo -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">clamav-milter |
+              <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">clamav-milter is a very fast email scanner designed for Sendmail. It’s written
+            entirely in C and only depends on libclamav or clamd. | get
+            <a class="blue" href="http://sourceforge.net/projects/clamav/files/">clamav-milter</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseThree -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">smtp-vilter | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">smtp-vilter is a high performance content filter for sendmail using the milter API.
+            The software scans e-mail messages for viruses and drops or marks infected messages. The backend to use for
+            the actual filtering is configurable, we currently have support for ClamAV and the Symantec Anti Virus Scan
+            Engine (savse). The backends are realised as shared libraries that are loaded dynamically when smtp-vilter
+            starts. | get <a class="blue" href="http://www.etc.msys.ch/software/smtp-vilter/">smtp-vilter</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseFour -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">MIMEDefang |
+              <em>clamscan, clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel-body">MIMEDefang is an efficient mail scanner for Sendmail/milter. | get
+            <a class="blue" href="http://www.roaringpenguin.com/products/mimedefang">MIMEDefang</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseFive -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Smart Sendmail Filter |
+              <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse">
+          <div class="panel-body">smf-clamd is a lightweight filter for Sen. | get
+            <a class="blue" href="http://efextra.com/smfilter.htm">smf-clamd</a>
+          </div>
+        </div>
+      </div>
+      <h5 class="gray">Qmail</h5>
+
+      <div class="panel panel-link"> <!-- collapseSix -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">qmail-scanner | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse">
+          <div class="panel-body">Qmail-Scanner is an add-on that enables a Qmail email server to scan all gateway-ed
+            email for certain characteristics (i.e. a content scanner). It is typically used for its anti-virus
+            protection functions, in which case it is used in conjunction with external virus scanners. but also enables
+            a site (at a server/site level) to react to email that contains specific strings in particular headers, or
+            particular attachment filenames or types (e.g. *.VBS attachments). | get
+            <a class="blue" href="http://qmail-scanner.sourceforge.net/">qmail-scanner</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseSeven -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">simscan | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse">
+          <div class="panel-body">Simscan is a simple program enables qmail-smtpd to reject viruses, spam and block
+            attachments during the SMTP conversation so the email never makes it into your computers. It is completely
+            open source and uses other open source compoments (see below). Very efficent and written in C. | get
+            <a class="blue" href="http://www.inter7.com/?page=simscan">simscan</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseEight -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">Qscanq | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapseEight" class="panel-collapse collapse">
+          <div class="panel-body">Qscanq replaces qmail-queue. It initiates a scan (using clamscan or clamdscan) on an
+            incoming email, and returns the exit status of the scanner or of qmail-queue to the caller. | get
+            <a class="blue" href="http://sourceforge.net/projects/qscanq/">Qscanq</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseNine -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Qsheff | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapseNine" class="panel-collapse collapse">
+          <div class="panel-body">Qsheff is a new spam and antivirus wrapper. It can be used as a drop in replacement
+            for qscanq. It’s more flexible and has got a few more features. | get
+            <a class="blue" href="http://www.enderunix.org/qsheff/">Qsheff</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseTen -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">ClamdMail | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseTen" class="panel-collapse collapse">
+          <div class="panel-body">Clamdmail is a qmail-queue replacement that allows mail to be filtered, greylisted, or
+            rejected before queuing based on connection information and message content by providing an interface for
+            programs like clamd-greylist, clamdscan and SpamAssassin. | get
+            <a class="blue" href="http://clamdmail.sourceforge.net/">Clamdmail</a>
+          </div>
+        </div>
+      </div>
+      <h5 class="gray">Postfix</h5>
+
+      <div class="panel panel-link"> <!-- collapseEleven -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">ClamSMTP | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseEleven" class="panel-collapse collapse">
+          <div class="panel-body">
+            ClamSMTP is an SMTP filter for Postfix and other mail servers that checks for viruses using the ClamAV
+            anti-virus software. It aims to be lightweight, reliable, and simple rather than have a myriad of options.
+            Written in C without major dependencies. | get
+            <a class="blue" href="http://thewalter.net/stef/software/clamsmtp/">ClamSMTP</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseTwelve -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">Clapf | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapseTwelve" class="panel-collapse collapse">
+          <div class="panel-body">Clapf is a clamav based virus scanning and anti-spam content filter for Postfix. | get
+            <a class="blue" href="http://clapf.org/wiki/doku.php/start">clapf</a>
+          </div>
+        </div>
+      </div>
+      <h5 class="gray">Exim</h5>
+
+      <div class="panel panel-link"> <!-- collapseThirteen -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen">Exim | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapseThirteen" class="panel-collapse collapse">
+          <div class="panel-body">Starting with release 4.50, Exim natively supports ClamAV. | get
+            <a class="blue" href="http://www.exim.org/">exim</a>
+          </div>
+        </div>
+      </div>
+      <h5 class="gray">Others</h5>
+
+      <div class="panel panel-link"> <!-- collapse14 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse14">Mail Avenger | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse14" class="panel-collapse collapse">
+          <div class="panel-body">Mail Avenger is a highly-configurable SMTP server. It allows you to reject spam during
+            mail transactions, before spooling messages in your local mail queue. You can specify site-wide default
+            policies for filtering mail, but individual users can also craft their own policies by creating avenger
+            scripts in their home directories. | get <a class="blue" href="http://www.mailavenger.org/">Mail Avenger</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse15 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse15">Mail Scanner | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse15" class="panel-collapse collapse">
+          <div class="panel-body">MailScanner scans all e-mail for viruses, spam and attacks against security
+            vulnerabilities. It is not tied to any particular virus scanner, but can be used with any combination of 14
+            different virus scanners, allowing sites to choose the best of breed virus scanner. | get
+            <a class="blue" href="http://www.mailscanner.info/">Mail Scanner</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse16 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse16">Maverix | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse16" class="panel-collapse collapse">
+          <div class="panel-body">Maverix is AOLserver module that implements SMTP protocol and acts as a SMTP proxy
+            with anti-spam and anti-virus capabilities. | get
+            <a class="blue" href="http://www.crystalballinc.com/vlad/software/maverix/">Maverix</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse17 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse17">Sagator |
+              <em>clamscan, clamd, libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse17" class="panel-collapse collapse">
+          <div class="panel-body">Sagator is an email antivirus/antispam gateway. Its modular architecture can use any
+            combination of antivirus/spamchecker according to configuration. | get
+            <a class="blue" href="http://www.salstar.sk/sagator/">Sagator</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse18 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse18">SMTP-gated | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse18" class="panel-collapse collapse">
+          <div class="panel-body">Smtp-gated is a transparent SMTP proxy supporting: NAT on Linux (netfilter), NAT on
+            FreeBSD (ipfw and others getsockopt-compatible), or dedicated mode (separate/external machine). DATA traffic
+            is spooled in write-thru mode and then scanned for viruses or spam. The program is transparent for TLS
+            connections. | get <a class="blue" href="http://software.klolik.org/smtp-gated/">SMTP-gated</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse19 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse19">ZMscanner | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse19" class="panel-collapse collapse">
+          <div class="panel-body">Zmscanner is an extensible modular content filter for Zmailer and Sendmail. It is
+            designed to be fast and efficient and thus suitable for high traffic mail systems. | get
+            <a class="blue" href="http://www.average.org/zmscanner/">Zmscanner</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse52 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse52">Courier-MTA |
+              <em>libclamav, clamavd </em></a>
+          </h4>
+        </div>
+        <div id="collapse52" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Courier MTA includes four filers.</p>
+
+            <p>
+              <a class="blue" href="http://phantom.dragonsdawn.net/~gordon/courier-pythonfilter/" target=":_blank">courier-pythonfilter</a>
+              by <a class="blue" href="mailto:yinyang@eburg.com">Gordon Messner</a>. Included in a Python filter suite,
+              it uses pyClamAV (libclamav with python)</p>
+
+            <p>
+              <a class="blue" href="http://search.cpan.org/dist/Courier-Filter/lib/Courier/Filter/Module/ClamAVd.pm" target="_blank">Courier::Filter::Module::ClamAVd</a>
+              by <a class="blue" href="mailto:julian@mehnle.net">Julian Mehnle</a>. A Perl module for use with
+              Courier::Filter, using clamavd.</p>
+
+            <p>
+              <a class="blue" href="http://www.becrux.com/index.php?page=projects&name=clamcour" target="_blank">ClamCour</a>
+              by <a class="blue" href="mailto:tony@becrux.com">Tony Di Monaco</a>. A C++ (with Boost) multithreaded
+              filter using libclamav</p>
+
+            <p><a class="blue" href="http://www.tana.it/sw/avfilter/" target="_blank">avfilter</a> by
+              <a class="blue" href="mailto:vesely@tana.it">Alessandro Vesely</a>. A C forking filter using libclamav.
+            </p>
+
+            <p class="right">| get <a class="blue" href="http://www.courier-mta.org/" target="_blank">Courier-MTA</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseHaraka -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseHaraka">Haraka | <em>clamd </em></a>
+          </h4>
+        </div>
+        <div id="collapseHaraka" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Haraka is a robust MTA written in node.js, with a modular architecture that lets plugins control nearly
+              every aspect of the SMTP conversation. There is a large selection of included plugins, including a clamav
+              plugin (docs, source) that filters messages using clamd.</p>
+
+            <p>Haraka is attractive to two audiences:</p>
+            <ol>
+              <li>Anyone managing mail systems with thousands or tens-of-thousands of concurrent incoming SMTP
+                connections (like Craigslist) and wants to do with it fewer racks of servers.
+              </li>
+              <li>Developers who need more control over mail routing, filtering, and processing than can be easily or
+                efficiently handled with traditional (milter-based) MTAs.
+              </li>
+            </ol>
+            <p class="right">| get <a class="blue" href="http://haraka.github.io/" target="_blank">Haraka</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="POP3"> <!-- POP3 -->
+  <div class="col-md-10 col-md-offset-1">
+    <h5 class="gray">Post Office Protocol Tools</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse20 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse20">P3Scan | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse20" class="panel-collapse collapse">
+          <div class="panel-body">P3Scan is a fullly-transparent proxy server for POP3-Clients. It runs on a Linux box
+            with iptables (for port re-direction). It can be used to provide POP3 email scanning from the internet to
+            any internal network and is ideal for helping protect your Other OS LAN from harm, especially when used in
+            conjunction with a firewall and other Internet Proxy servers. P3Scan is designed to enable scanning of
+            incoming email messages for Virus’s, Worms, Trojans, Spam (read as Un-solicited Bulk Email), and harmfull
+            attachments. Because viewing HTML mail can enable a Spammer to validate an email address (by the email
+            client automatically reaching out and touching the web host), it can also provide HTML stripping. P3Scan is
+            a derived work of:[POP3VScan [pop3vscan]]. | get
+            <a class="blue" href="http://p3scan.sourceforge.net/" target="_blank">P3Scan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="webftp"> <!-- Web & FTP -->
+  <div class="col-md-10 col-md-offset-1">
+    <h5 class="gray">Web &amp; FTP Tools</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse21 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse21">HAVP | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse21" class="panel-collapse collapse">
+          <div class="panel-body">HAVP is a proxy with an antivirus filter. It does not cache or filter content. At the
+            moment the complete traffic is scanned. A reason for that is the chance of malicious code in nearly every
+            filetypes e.g. HTML (JavaScript) or Jpeg. |
+            <a class="blue" href="http://www.server-side.de/" target="_blank">HAVP</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse22 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse22">mod_clamav |
+              <em> libclamav, clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse22" class="panel-collapse collapse">
+          <div class="panel-body">mod_clamav is an Apache virus scanning filter. It was written and is currently
+            maintained by Andreas Müller. The project is very well documented and the installation is quite easy. | get
+            <a class="blue" href="http://software.othello.ch/mod_clamav/" target="_blank">mod_clamav</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse23 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse23">mod_streamav | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse23" class="panel-collapse collapse">
+          <div class="panel-body">mod_streamav is designed as an Apache 2 filter, which scans the content of Apache
+            Brigades, using the Clamav virus scanning engine. Different from mod_clamav, mod_streamav is a scanning
+            engine based on streaming mode. | get
+            <a class="blue" href="http://streamav.sourceforge.net/" target="_blank">mod_streamav</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse53 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse53">phpMussel | <em>clamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse53" class="panel-collapse collapse">
+          <div class="panel-body">A PHP-based script based upon ClamAV signatures designed to detect trojans, viruses,
+            malware and other threats within files uploaded to your system wherever the script is hooked. Written by
+            <a class="blue" href="mailto:maikuolan@gmail.com">Maikuolan</a> | get
+            <a class="blue" href="http://sourceforge.net/projects/phpmussel/" target="_blank">phpMussel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="filesys"> <!-- Filesys -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Filesystem &amp; On-Access Scanning</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse24 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse24">ClamFS | <em> clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse24" class="panel-collapse collapse">
+          <div class="panel-body">ClamFS is a FUSE-based user-space file system for Linux with on-access anti-virus file
+            scanning through clamd daemon. The LRU cache is used to provide fast access to files already scanned when
+            multiple open requests are preformed. ClamFS support three logging methods (stdout, file, and syslog) and
+            sends e-mail notification when virus is found. | get
+            <a class="blue" href="http://clamfs.sourceforge.net/" target="_blank">ClamFS</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse25 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse25"> Avfs | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse25" class="panel-collapse collapse">
+          <div class="panel-body">Avfs, a true on-access anti-virus file system that incrementally scans files and
+            prevents infected data from being committed to disk. Avfs is a stackable file system and therefore can add
+            virus detection to any other file system: Ext3, NFS, etc. Avfs supports forensic modes that can prevent a
+            virus from reaching the disk or automatically create versions of potentially infected files to allow safe
+            recovery. Avfs can also quarantine infected files on disk and isolate them from user processes. | get
+            <a class="blue" href="http://www.fsl.cs.sunysb.edu/docs/avfs-security04/index.html" target="_blank">Avfs</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse26 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse26">Dazuko | <em>clamuko</em></a>
+          </h4>
+        </div>
+        <div id="collapse26" class="panel-collapse collapse">
+          <div class="panel-body">This project provides a kernel module, which provides 3d-party applications an
+            interface for file access control. It was originally developed by H+BEDV Datentechnik GmbH to be used for
+            on-access virus scanning. Other uses include a file-access monitor/logger or external security
+            implementations. It operates by intercepting file-access calls and passing the file information to a
+            3rd-party application. The 3rd-party application then has the opportunity to tell the kernel module to allow
+            or deny the file-access. The 3rd-party application also receives information about the file, type of access,
+            process id, and user id. | get
+            <a class="blue" href="http://dazuko.dnsalias.org/wiki/index.php/Main_Page" target="_blank">Dazuko</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse27 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse27">samba-vscan | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse27" class="panel-collapse collapse">
+          <div class="panel-body">samba-vscan provides on-access scanning of Samba shares with ClamAV, FRISK F-Prot
+            Daemon, Kaspersky AntiVirus, OpenAntiVirus.org ScannerDaemon, mks AntiVirus, Sophos Sweep (via Sophie),
+            Symantec AntiVirus Engine (via ICAP), and Trend Micro (via Trophie). It supports Samba 2.2.x/3.0 with
+            working virtual file system (VFS) support. | get
+            <a class="blue" href="http://freecode.com/projects/samba-vscan" target="_blank">samba-vscan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="MUA"> <!-- MUA  -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Mail User Agents</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse28 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse28">Kmail | <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse28" class="panel-collapse collapse">
+          <div class="panel-body">KMail is a fully-featured email client that fits nicely into the K Desktop
+            Environment, KDE. It supports attachment scanning with clamscan. | get
+            <a class="blue" href="http://userbase.kde.org/KMail" target="_blank">Kmail</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse29 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse29">Open Webmail modules |
+              <em>clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse29" class="panel-collapse collapse">
+          <div class="panel-body">Open WebMail by default can use ClamAV as the external viruscheck module to scan
+            messages fetched from pop3 servers or all incoming messages. If a message or its attachments is found to
+            have virus, Open WebMail will move the message from INBOX to the VIRUS folder automatically. | get
+            <a class="blue" href="http://openwebmail.org/openwebmail/download/release/2.51/cgi-bin/openwebmail/modules/" target="_blank">Open
+              Webmail</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse30 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse30">ClamAssassin | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse30" class="panel-collapse collapse">
+          <div class="panel-body">ClamAssassin is a simple script for virus scanning an e-mail message as a filter. If a
+            message is virus infected, the X-Virus-Status header is set to Yes and the X-Virus-Report header is set to
+            the virus(es) found. If the message is fine, it is passed through with X-Virus-Status set to No. This is
+            intended to act much like spamassassin does. This makes it easy to plug it into a procmail or other filter
+            quite easily. If you’ve already set up a system to use spamassassin, you can easily use similiar procedures
+            to implement clamassassin. | get
+            <a class="blue" href="http://jameslick.com/clamassassin/" target="_blank">ClamAssassin</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse31 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse31">SoftlabsAV | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse31" class="panel-collapse collapse">
+          <div class="panel-body">Softlabs AntiVirus is a generic anti-virus filter for incoming mail servers on Unix,
+            running as plugin for procmail. In addition, it plugs to the ClamAV if available. | get
+            <a class="blue" href="http://softlabsav.softlabs.net/" target="_blank">SoftlabsAV</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse32 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse32">Qclam | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse32" class="panel-collapse collapse">
+          <div class="panel-body">QClam is a simple program to plug ClamAV antivirus to your Qmail mailbox. It runs from
+            your ~/.qmail file. It receives incoming messages from Qmail and scans them using clamscan. If a virus
+            found, it returns 99 to Qmail telling it that the message should not be processed (and it just gets
+            removed). If no virus found, or there was an error calling clamscan, QClam returns 0 to QMail and it
+            delivers message as usually. QClam also writes results of scanning into log file. It’s written in C++ and
+            doesn’t require any other software to run. Its size is just about 7k. | get
+            <a class="blue" href="http://sageshome.net/oss/qclam.php" target="_blank">QClam</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse33 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse33">QMVC - Qmail Mail &amp; Virus Control
+              | <em>clamdscan, clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse33" class="panel-collapse collapse">
+          <div class="panel-body">QMVC is an unidirectional mail filter for Qmail. It works in conjunction with the
+            dot-qmail mechanism for qmail-local and is entirely designed for Qmail (no additional patches required). |
+            get <a class="blue" href="http://www.fehcom.de/qmail/qmvc.html" target="_blank">QMVC</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="bindings"> <!-- Bindings -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">ClamAV Bindings</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse34 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse34">ClamAV# | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse34" class="panel-collapse collapse">
+          <div class="panel-body">Mono binding for ClamAV | get
+            <a class="blue" href="http://clamav-sharp.sourceforge.net/" target="_blank">ClamAV#</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse35 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse35">Clamson | <em> clamscan</em></a>
+          </h4>
+        </div>
+        <div id="collapse35" class="panel-collapse collapse">
+          <div class="panel-body">Clamson provides a simple C# API to the ClamAV daemon (clamd) via TCP. | get
+            <a class="blue" href="https://github.com/michaelhans/Clamson/" target="_blank">Clamson</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse36 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse36">ClamAV::Client | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse36" class="panel-collapse collapse">
+          <div class="panel-body">A Perl client class for clamd | get
+            <a class="blue" href="http://search.cpan.org/dist/ClamAV-Client/" target="_blank">ClamAV::Client</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapseSharpClam -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSharpClam">SharpClam | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapseSharpClam" class="panel-collapse collapse">
+          <div class="panel-body">A tiny libclamav binding for .NET (C# and VB.NET). | get
+            <a class="blue" href="https://github.com/fahminlb33/SharpClam" target="_blank">SharpClam</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse37 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse37">ClamAVPlugin | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse37" class="panel-collapse collapse">
+          <div class="panel-body">A ClamAV plug in fpr SpamAssassin 3.X | get
+            <a class="blue" href="http://wiki.apache.org/spamassassin/ClamAVPlugin" target="_blank">ClamAVPlugin</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse38 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse38">ClamAV gem | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse38" class="panel-collapse collapse">
+          <div class="panel-body">Ruby binding for ClamAV | get
+            <a class="blue" href="https://github.com/eagleas/clamav" target="_blank">ClamAV gem</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse39 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse39">File::Scan::ClamAV |
+              <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse39" class="panel-collapse collapse">
+          <div class="panel-body">Scan files and control clamd directly from Perl | get
+            <a class="blue" href="http://search.cpan.org/~cfaber/File-Scan-ClamAV-1.06/lib/File/Scan/ClamAV.pm" target="_blank">File::Scan::ClamAV</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse40 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse40">Mail::ClamAV | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse40" class="panel-collapse collapse">
+          <div class="panel-body">Perl extension for the ClamAV virus scanner. | get
+            <a class="blue" href="http://search.cpan.org/~sabeck/" target="_blank">Mail::ClamAV</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse41 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse41">PHP ClamAV Lib |
+              <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse41" class="panel-collapse collapse">
+          <div class="panel-body">PHP ClamAV Lib is a PHP extension that allows incorporation of virus canning features
+            in PHP scripts. | get
+            <a class="blue" href="http://sourceforge.net/projects/php-clamav/" target="_blank">PHP ClamAV Lib</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse42 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse42">PYClamAV | <em>libclamav</em></a>
+          </h4>
+        </div>
+        <div id="collapse42" class="panel-collapse collapse">
+          <div class="panel-body">Python binding for ClamAV | get
+            <a class="blue" href="http://xael.org/norman/python/pyclamav/" target="_blank">PYClamAV</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse43 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse43">pyClamd | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse43" class="panel-collapse collapse">
+          <div class="panel-body">Add virus detection capabilities to your python software in an efficient and easy way.
+            | get <a class="blue" href="http://xael.org/norman/python/pyclamd/" target="_blank">pyClamd</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section tool" id="misc"> <!-- Misc -->
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+    <h5 class="gray">Miscellaneous Tools</h5>
+
+    <div class="panel-group">
+      <div class="panel panel-link"> <!-- collapse44 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse44">clamd.monitor | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse44" class="panel-collapse collapse">
+          <div class="panel-body">A clamd monitor compatible with the mon software. | get
+            <a class="blue" href="http://www.cmpublishers.com/oss/" target="_blank">clamd.monitor</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse45 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse45">clamd-stream-cl | <em>clamd</em></a>
+          </h4>
+        </div>
+        <div id="collapse45" class="panel-collapse collapse">
+          <div class="panel-body">This is a modified version of clamdscan. It can stream a file to an intstance of clamd
+            running on another host, via TCP socket. | get
+            <a class="blue" href="http://sourceforge.net/projects/clamd-stream-cl/" target="_blank">clamd-stream-cl</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse46 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse46">IPCop | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse46" class="panel-collapse collapse">
+          <div class="panel-body">IPCop Linux is a complete Linux Distribution whose sole purpose is to protect the
+            networks it is installed on. ClamAV is included. | get
+            <a class="blue" href="http://www.ipcop.org/" target="_blank">IPCop</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse47 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse47">INSERT | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse47" class="panel-collapse collapse">
+          <div class="panel-body">INSERT (the Inside Security Rescue Toolkit) aims to be a multi-functional,
+            multi-purpose disaster recovery and network analysis system. It boots from a credit card-sized CD-ROM and is
+            basically a stripped-down version of Knoppix. It features good hardware detection, fluxbox, emelfm,
+            links-hacked, ssh, tcpdump, nmap, chntpwd, and much more. It provides full read-write support for NTFS
+            partitions (using captive), and the ClamAV virus scanner (including the signature database). | get
+            <a class="blue" href="http://www.inside-security.de/INSERT_en.html" target="_blank">INSERT</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse48 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse48">Endian Firewall | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse48" class="panel-collapse collapse">
+          <div class="panel-body">Endian Firewall is a turn-key linux security distribution based on IPCop that turns
+            every system into a full featured security appliance. The software has been designed with usability in mind
+            and is very easy to install, use and mange, without loosing its flexibility. The features include a stateful
+            packet inspection firewall, application level proxies for variuos protocols (HTTP, POP3, SMTP) with
+            antivirus support, virus and spamfiltering for email traffic (POP and SMTP), content filtering of Web
+            traffic and a hassle free VPN solution based on OpenVPN. | get
+            <a class="blue" href="http://www.efw.it/" target="_blank">Endian Firewall</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse49 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse49">qmailmrtg7 | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse49" class="panel-collapse collapse">
+          <div class="panel-body">qmailmrtg7 utilizes qmail and tcpserver/multilog’s extensive logging capabilities to
+            create mrtg graphs. It efficiently processes the log files and can graph viruses found by ClamAV. | get
+            <a href="http://www.inter7.com/index.php?page=qmailmrtg7" target="_blank">qmailmrtg7</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse50 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse50">Redwall Firewall | <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse50" class="panel-collapse collapse">
+          <div class="panel-body">RedWall is a bootable CD-ROM firewall which focuses on web-based reporting of the
+            firewall’s status. It supports virus filtering with amavisd-new and ClamAV. | get
+            <a href="http://redwall.sourceforge.net/" target="_blank">Redwall Firewall</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-link"> <!-- collapse51 -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse51">Scan Log Analyzer |
+              <em>ClamAV</em></a>
+          </h4>
+        </div>
+        <div id="collapse51" class="panel-collapse collapse">
+          <div class="panel-body">Scan analyzer allows you to plot and view graphical representation of log data from
+            virus logs of RAV, ClamAV and Vexira. | get
+            <a class="blue" href="http://pandaemail.sourceforge.net/av-tools/" target="_blank">Scan Log Analyzer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row section-lines" id="submittools">
+  <div class="col-sm-10 col-sm-offset-1">
+    <h2 class="section-title">Submit ClamAV Tools</h2>
+
+    <p class="gray">If you have written software that can make use of ClamAV, please notify the
+      <a class="blue" href="mailto:sfcommunity@cisco.com" target="_top">Community Manager</a>. Be sure to include the
+      name of the program, a short description, the URL of home site, and the author's email address. Please note that
+      we will only review software that is released under an OSI license.</p>
+  </div>
+</div>
+</div>
+
+    </div>
+    <div class="container-fluid">
+      <div class="row footer">
+        <div class="col-xs-12 center">
+          <p class="dark-gray"> &copy; 2004 - 2015 Cisco and/or its affiliates. All rights reserved. &#124; <a href="http://www.cisco.com/web/siteassets/legal/privacy.html" target="_blank">Privacy Policy</a><br class="hidden-xs"/> All content on this website, unless otherwise noted, is licensed under the <a href="http://creativecommons.org/licenses/by-nd/2.5/" target="_blank">Creative Commons Attribution - NoDerivs License.</a></p>
+          <img class="TM" src="/assets/CAVDevil_TM-110627e077ef6ccd2a4c45e9cc21487e.png">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

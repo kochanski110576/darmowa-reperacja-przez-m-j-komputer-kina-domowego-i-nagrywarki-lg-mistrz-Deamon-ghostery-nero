@@ -1,0 +1,369 @@
+
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="language" content="pl"/>
+<meta name="author" content="Concepto" />
+<!-- facebook problem -->
+<meta name="auth" content="Andrzej Dybionka - Concepto" />
+<meta name="robots" content="index,follow,all" />
+<meta name="keywords" content="instrukcja, LG, RH7500, instrukcja, obsługi, EN" /><meta name="description" content="Instrukcja obsługi" /><link rel="shortcut icon" href="/media/img/favicon.ico" />
+<script type="text/javascript" src="/media/js/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui/ui/ui.core.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui/ui/ui.tabs.min.js"></script>
+<script type="text/javascript" src="/media/js/main.js"></script>
+
+<script type="text/javascript" src="/media/js/jquery.ui/ui/ui.draggable.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui/ui/ui.resizable.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.ui/ui/ui.dialog.min.js"></script>
+<script type="text/javascript" src="/media/js/ins_page.js"></script>
+<script type="text/javascript" src="/media/js/swfobject.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/media/css/ui/blue/jquery-ui-themeroller.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/style.css" />
+
+
+<script type="text/javascript">
+
+							
+							var flashvars = {
+								pages_amount : 62,
+								page_width   : 595,
+								page_height  : 842,
+								//page_width	 : 793,
+								//page_height  : 620,
+								dir_path     : "/storage/other/3/662108059_pdf/",
+								file_path    : "/download/file/16862/662108059.pdf",
+								is_auth      : 0,
+								file_name    : "lg_rh7500_en_(www.instrukcja.pl).pdf"
+							};
+								
+							var params = {
+								menu: "false",
+								allowScriptAccess: "always",
+								allowFullScreen: "true", 
+								scale: "noscale"
+							};
+							var attributes = {};
+							swfobject.embedSWF("/media/swf/pdf_viewer.swf", "flashcontent", "960", "620", "9.0.0", "/media/swf/expressinstall.swf", flashvars, params, attributes);
+							SWFID = "flashcontent";
+						
+</script>
+
+<!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="/media/css/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" href="/media/css/ie6.css" />
+<![endif]-->
+<!--[if IE ]>
+    <link rel="stylesheet" type="text/css" href="/media/css/ie.css" />
+<![endif]-->
+
+
+
+<title>LG RH7500 [EN] - Instrukcja.pl</title>
+
+</head>
+<body>
+
+<div id="main">
+	<div style="position: absolute; top: 145px; left: -150px;width: 120px; height: 800px">
+		<a target="_blank" href="http://youcreo.com"><img width="120" src="/media/img/youcreo.jpg" alt="" /></a>
+	</div>
+	<div id="header">
+		<div id="header_logo" onclick="document.location.href = '/';">
+			<a href="/"></a>	
+		</div>
+		
+	<div id="facebook_box">
+		<div style="float: left; width: 40px; height: 40px;">
+			<img src="/media/img/facebook.png" style="width:40px; height:40px" alt="Facebook" />
+		</div>
+		
+		<iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Finstrukcjapl&amp;width=200&amp;connections=10&amp;stream=false&amp;header=false&amp;height=255" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:255px;"></iframe>
+	</div>
+		
+		<div id="menu_and_links">
+			<div id="header_links_top">
+				<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Finstrukcjapl&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=348597968548233" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:20px;" allowTransparency="true"></iframe>
+									<a href="/profil/rejestracja/">Zarejestruj się</a> |&nbsp;
+					<a href="/profil/logowanie/?site=i/lg_rh7500_en">Zaloguj</a>
+					
+					
+					
+							</div>
+			
+			<div id="icons_menu">
+				<ul>
+				    <li><a id="icon_firm" href="/oferta_dla_firm/" title="Oferta dla firm">Oferta dla<br/>firm</a></li>
+					<!-- <li><a id="icon_help" href="/pomoc/" title="Pomoc">Pomoc</a></li> -->
+					<li><a id="icon_search" href="/szukaj/" title="Szukaj">Szukaj</a></li>
+					<li><a id="icon_service" href="/serwisy/" title="Baza serwisów">Baza<br/>serwisów</a></li>
+					<li><a id="icon_people" href="/forum/" title="Forum dyskusyjne">Forum</a></li>
+					<li><a id="icon_myins" href="/moje_instrukcje/" title="Moje instrukcje">Moje<br/>instrukcje</a></li>
+					<li><a id="icon_add" href="/instrukcja/dodaj/" title="Dodaj instrukcje">Dodaj<br/>instrukcje</a></li>
+					<!--<li><a id="icon_books" href="http://eksiegarnia.instrukcja.pl/" title="Dodaj instrukcje">eKsięgarnia</a></li>-->					
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+<div id="main_content">
+	<div id="baner_top">
+
+
+		<script type="text/javascript">
+		google_ad_client = "ca-pub-1430816775099524";
+		/* Instrukcja 2 */
+		google_ad_slot = "1761571646";
+		google_ad_width = 728;
+		google_ad_height = 90;
+
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+		
+
+	</div>
+	<div id="top_content">
+		<div id="top_user_info">
+							<form action="/profil/logowanie/" method="post" ><table id="table_login_small"><tr><td><label for="username_small">Login</label></td><td><input type="text" name="username" id="username_small" size="23" maxlength="50" /></td></tr><tr><td><label for="password_small">Hasło</label></td><td><input type="password" name="password" id="password_small" size="11" maxlength="50" /><input type="submit" class="submit_green" name="submit" value="Login" /></td></tr></table></form>					</div>	
+		<div id="top_search">
+			<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'white'
+};</script><div id="menu_top"><ul id="menu_top_list"><li><a href="#search">Szukaj instrukcji</a></li><li><a href="#search_service">Szukaj serwisu</a></li><li><a href="#search_user">Szukaj fachowca</a></li><li><a href="#problem">Zadaj pytanie</a></li></ul><div class="clear"></div></div><div class="clear"></div><div id="search_top"><div id="search"><form action="/szukaj/instrukcje/" method="get"><div><div class="left"><input type="hidden" name="s"  value="2"/><input type="text" class="input_search_big" name="title" onblur="set_text(this,'Wpisz tytuł instrukcji');" onfocus="clear_text(this,'Wpisz tytuł instrukcji');" value="Wpisz tytuł instrukcji" /></div><div class="right"><input type="submit" value="Szukaj" class="submit_search" /></div><div class="clear"></div></div></form></div><div id="search_service"><form action="/szukaj/serwisy/" method="get"><div><div class="left"><input type="hidden" name="s"  value="4"/><input type="text" class="input_search_big" name="s_name" onblur="set_text(this,'Wpisz nazwę serwisu');" onfocus="clear_text(this,'Wpisz nazwę serwisu');" value="Wpisz nazwę serwisu" /></div><div class="right"><input type="submit" value="Szukaj" class="submit_search" /></div><div class="clear"></div></div></form></div><div id="problem" style="display:none;"><form action="/problem/zglos_problem/?redir=i/lg_rh7500_en" method="post"><div><div class="left"><input type="text" class="input_search_big black" name="title" /><br/><textarea name="problem" cols="65" rows="2"></textarea><script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LednN0SAAAAAE4Ln2DycZHGdQ0P5fK6pjdNiKR6"></script></div><div class="right"><input type="submit" value="Zgłoś" class="submit_search" /></div><div class="clear"></div></div></form></div><div id="search_user" style="display:none;"><form action="/szukaj/uzytkownicy/" method="get"><div><div class="left"><input type="hidden" name="s" value="3" /><input type="text" class="input_search_big" name="profession" onblur="set_text(this,'Wpisz nazwę zawodu np. Hydraulik');" onfocus="clear_text(this,'Wpisz nazwę zawodu np. Hydraulik');" value="Wpisz nazwę zawodu np. Hydraulik"  /></div><div class="right"><input type="submit" value="Szukaj" class="submit_search" /></div><div class="clear"></div></div></form></div></div>		</div>
+		<div class="clear"></div>
+	</div>
+
+ <!--[if lt IE 7]>
+  <div style="background-color:#FFF6C4;border:1px solid #DFD186;margin:10px auto;padding:10px;">
+		<h2 class="center"><span class="color_red">Uwaga!</span> Twoja przeglądarka jest w bardzo starej wersji.<br/> <span class="color_red">Zaktualizuj ją natychmiast</span>.</h2>
+		<img src="http://ie6.pl/i/baners/125x125-3.png" alt="" class="left" style="margin:10px;" />
+		<p>
+			Korzystasz z <span class="color_red"><strong>bardzo starej wersji</strong></span> Internet Explorera (6.0).
+			Nie jest ona wspierana przez producenta i stanowi potencjalne zagrożenie. Jeśli jesteś w pracy i widzisz tę wiadomość, skontaktuj się ze swoim administratorem i poproś o aktualizację przeglądarki.	
+		</p>
+		<p>
+			Aby dowiedzieć się, dlaczego powinieneś dokonać aktualizacji, kliknij w poniższy link:<br/>
+		</p>
+		<p>		
+    	<a href="http://ie6.pl"><strong>Tak</strong>, chcę dowiedzieć się więcej</a>. <strong>Rozwiąż problem pobierająć <a href="http://www.mozilla-europe.org/pl/firefox/">Firefox-a</a></strong></p>
+	</div>
+  <![endif]-->
+		
+		
+	<div id="alerts">
+		
+		
+		
+		
+			</div><div id="instruction">
+
+<div id="categry_navigation"><a href="/kategorie/">Kategorie</a>  &gt; <a href="/kategorie/sprzet_rtv">Sprzęt RTV</a> &gt; <a href="/kategorie/tv_video_i_dvd">TV, Video i DVD</a> &gt; <a href="/kategorie/dvd">DVD</a> &gt; <a href="/kategorie/lg_6">LG</a></div>
+<div id="ins_title_main">
+	<!--
+	<div class="left">
+					<img src="/storage/thumbs/20634default.jpg" alt="" />
+			</div>	
+	-->
+	<h1 class="center">LG RH7500 [EN]</h1>
+	<div id="ins_description">Instrukcja obsługi</div>	<div class="clear"></div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="ins_content">
+	<div class="center"><div id="flashcontent"></div></div><hr/><div class="right">
+<script type="text/javascript"><!-- 
+google_ad_client = "pub-1430816775099524"; 
+/* 728x90, utworzono 09-06-10 */ 
+google_ad_slot = "7508456788"; 
+google_ad_width = 728; 
+google_ad_height = 90; 
+//--> 
+</script> 
+<script type="text/javascript" 
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script> 
+
+
+</div><div class="ins_files"><div class="ins_files_icon"><img src="/media/img/mimetype/pdf.png" alt="" /></div><div class="ins_files_desc">4.78 MB<br/>Liczba pobrań: 3<br/><a rel="nofollow" href="/i/lg_rh7500_en/pdf/16862" >Otwórz plik</a><br/><a rel="nofollow" href="/download/file/16862/662108059.pdf" >Pobierz plik</a></div><div class="clear"></div><input type="text" value="http://instrukcja.pl/download/files/16862" readonly="readonly" class="input_filepath" onclick="this.select();"/></div><div class="clear"></div></div>
+
+	
+
+<div class="ins_similar"><h2 class="more_title_yellow">Podobne instrukcje</h2><a href="javascript:void(0);" onclick="show_prev_ins_similar();"><img src="/media/img/button_left_yellow.jpg" class="left" alt=""/></a><a href="javascript:void(0);" onclick="show_next_ins_similar(20634);"><img src="/media/img/button_right_yellow.jpg" class="right" alt=""/></a><div id="other_similar_ins"><div class="other_ins_width_loader" style="display:none;"><div style="padding:25px 0;"><img src="/media/img/ajax-loader_2.gif" alt="" /><br/>Trwa ładowanie...</div></div><div class="ins_page_list_width ins_others_list_width_page_1"><div class="ins_others_list_width_item"><div class="ins_other_thumb"><a href="/i/iveco_daily_euro_4_20062009_manual_en_instrukcja_napraw"><img class="ins_others_thumb" src="/storage/thumbs/28135default.jpg" alt="" /></a></div><div class="ins_other_width_data"><h4><a href="/i/iveco_daily_euro_4_20062009_manual_en_instrukcja_napraw">Iveco Daily Euro 4 2006-2009 Manual EN Instrukcja napraw</a></h4><strong>Od:</strong> <a href="#">michal1989s</a><br/><strong>Liczba wyświetleń:</strong> 8048</div><div class="clear"></div></div><div class="ins_others_list_width_item"><div class="ins_other_thumb"><a href="/i/sony_strda2es_en"><img class="ins_others_thumb" src="/storage/thumbs/28124default.jpeg" alt="" /></a></div><div class="ins_other_width_data"><h4><a href="/i/sony_strda2es_en">SONY STR-DA2ES [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1196</div><div class="clear"></div></div><div class="ins_others_list_width_item"><div class="ins_other_thumb"><a href="/i/lg_e400_swift3_instrukcja_obslugi_pl"><img class="ins_others_thumb" src="/storage/thumbs/28001default.jpg" alt="" /></a></div><div class="ins_other_width_data"><h4><a href="/i/lg_e400_swift3_instrukcja_obslugi_pl">LG E400 Swift3 - instrukcja obsługi [PL]</a></h4><strong>Od:</strong> <a href="#">slavko49</a><br/><strong>Liczba wyświetleń:</strong> 7896</div><div class="clear"></div></div></div></div><div class="clear"></div></div><hr/>
+<div id="ins_data">
+<div class="ins_data_avatar">
+	<a href="/u/manop">
+		<img src="/storage/avatars/manop_n.jpg" alt="" />
+		</a>
+	<p><a href="/u/manop">manop</a></p>
+</div>
+<div id="intertext1">
+<div class="ins_data_data">
+	
+	<div class="left_ins_data">
+	
+		<table id="ins_data_table">
+			<tr>
+				<td class="bg_grey"><strong>Odsłon:</strong></td>
+				<td class="bg_grey">&ensp;1543&ensp;</td>
+				<td class="bg_grey align_right"> <strong> Data dodania:</strong></td>
+				<td class="bg_grey">&ensp;2011-09-30 14:04:48&ensp;</td>
+			</tr>
+			<tr class="embed_ins">
+				<td colspan="1">
+					<label for="embed_url">Adres:</label>
+				</td>
+				<td colspan="3">
+					<input type="text" id="embed_url" size="35" readonly="readonly" value="http://instrukcja.pl/i/lg_rh7500_en" onfocus="this.select();"/>
+				</td>				
+			</tr>
+			<!--
+			<tr class="embed_ins">
+				<td colspan="1">
+					<label for="embed_code">Umieść:</label>
+				</td>
+				<td colspan="3">
+					<input type="text" id="embed_code" size="35" readonly="readonly" value="ddddd" onfocus="this.select();"/>
+					
+				</td>				
+			</tr>-->
+		</table>		
+	</div>
+	
+	<div class="right_ins_data">
+		<div><strong>Czy ta instrukcja jest pomocna ?</strong></div>
+		<object data="/media/swf/rate.swf?minus=0&amp;plus=0&amp;link=/ajax/instruction_vote/20634/&amp;mozna=0&amp;zalogowany=0" type="application/x-shockwave-flash"  id="vote" width="189" height="88" >
+			<param name="quality" value="high" />
+		    <param name="SCALE" value="exactfit" />
+			<param name="menu" value="false" />
+		    <param name="movie" value="/media/swf/rate.swf?minus=0&amp;plus=0&amp;link=/ajax/instruction_vote/20634/&amp;mozna=0&amp;zalogowany=0" />
+		</object>			
+	</div>
+	<div class="clear"></div>
+	<div id="ins_tag">
+	<strong>Tagi:</strong>&ensp; 
+					<a href="/szukaj/tag/LG">LG</a>, 					<a href="/szukaj/tag/RH7500">RH7500</a>, 					<a href="/szukaj/tag/instrukcja">instrukcja</a>, 					<a href="/szukaj/tag/obsługi">obsługi</a>, 					<a href="/szukaj/tag/EN">EN</a>			
+	</div>	
+</div>
+<div class="clear"></div>
+
+
+
+<hr/>
+<h4>Opis:</h4> 
+<div>
+	<div class="bbtext">
+	LG.COM
+    </div>
+	<div class="clear"></div>
+	
+</div>
+</div>
+
+<div id="ins_options">
+	<table>
+		<tr>
+			<td><a href="javascript:add_to_favorite(20634);"><img src="/media/img/favorite.gif" alt="" /></a></td>
+			<td><a href="javascript:add_to_favorite(20634);">Dodaj do ulubionych</a></td>
+			<td><a href="javascript:violation_rules('20634');"><img src="/media/img/rules.gif" alt="" /></a></td>
+			<td><a href="javascript:violation_rules('20634');">Zgłoś naruszenie regulaminu</a></td>
+			<td>
+			 <div class="Add">
+			  <a title="Dodaj do digg" href="http://digg.com/submit?phase=2&amp;url=http://instrukcja.pl/i/lg_rh7500_en/&amp;title=LG RH7500 [EN] - Instrukcja.pl"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_08.gif"></a>
+			  <a title="Dodaj do del.icio.us" href="http://del.icio.us/post?v=2&amp;url=http://instrukcja.pl/i/lg_rh7500_en&amp;title=LG RH7500 [EN] - Instrukcja.pl"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_04.gif"></a>
+			  <a title="Dodaj do spurl" href="http://www.spurl.net/spurl.php?url=http://instrukcja.pl/i/lg_rh7500_en"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_07.gif"></a>
+			  <a title="Dodaj do blinklist" href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http://instrukcja.pl/i/lg_rh7500_en"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_06.gif"></a>
+			  <a title="Dodaj do technorati" href="http://technorati.com/faves?add=http://instrukcja.pl/i/lg_rh7500_en&amp;title=LG RH7500 [EN] - Instrukcja.pl"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_05.gif"></a>
+			  <a title="Dodaj do linkr" href="http://www.linkr.pl/html/dodaj?url=http://instrukcja.pl/i/lg_rh7500_en&amp;title=LG RH7500 [EN] - Instrukcja.pl"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_03.gif"></a>
+			  <a title="Dodaj do wykop" href="http://www.wykop.pl/dodaj?url=http://instrukcja.pl/i/lg_rh7500_en&amp;title=LG RH7500 [EN] - Instrukcja.pl"><img  alt="" src="http://www.wprost.pl/G/icons/ico_comm_01.gif"></a>
+			 </div>
+			</td>
+			<td>
+				<div class="Facebook"><a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Udostępnij</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></a></div>
+			</td>
+		</tr>
+	</table>
+	<div id="add_toother" style="display:none;">
+		<table>
+			<tr>
+				<td id="wykop">
+				<script type="text/javascript">
+					/* <!-- */
+					var delicious_title='LG RH7500 [EN]';
+					var wykop_url=location.href; 
+					var wykop_title='LG RH7500 [EN]';
+					var wykop_desc=encodeURIComponent('Instrukcja obsługi');
+					var widget_bg='FFFFFF';
+					var widget_type='compact';
+					var widget_bold=true; 
+					var widget_url='http://www.wykop.pl/widget.php?url='+(wykop_url)+'&amp;title='+(wykop_title)+'&amp;desc='+(wykop_desc)+'&amp;bg='+(widget_bg)+'&amp;type='+(widget_type)+'&amp;bold='+(widget_bold);
+					document.write('<div><iframe src="'+widget_url+'" style="border:none;width:80px;height:25px;overflow:hidden;margin:0;padding:0;" frameborder="0" border="0"></iframe></div>'); 
+					/* --> */
+				</script> 	
+				</td>
+				
+				
+				<td id="delicius">
+					<a href="javascript:add_to_delicious();"><img src="/media/img/delicious.20.gif" alt="" /></a>
+				</td>
+				<td>								
+					<a href="javascript:add_to_delicious();">Dodaj do delicious</a>
+				</td>
+			</tr>
+		</table>
+		
+		
+	</div>
+</div>	
+
+<div class="center">
+	</div>
+
+<div id="ins_comments"><div id="ins_comments_form"><h3>Komentarze (0)</h3><hr/><div id="comment_form"><h4 class="center">Aby dodać komentarz musisz się <a href="/profil/logowanie/?site=i/lg_rh7500_en">zalogować</a>.</h4></div></div><hr/><h4 class="center">Brak komentarzy</h4></div>        
+</div>	
+
+<div class="ins_others"><h2 class="more_title">Instrukcje od manop</h2><div class="ins_others_list" id="other_user_ins"><div class="other_ins_loader" style="display:none;"><img src="/media/img/ajax-loader_big.gif" alt="" /><br/>Trwa ładowanie...</div><div class="ins_page_list ins_others_list_page_1"><div class="ins_others_list_item"><div class="ins_other_thumb"><a href="/i/sony_strda3200es_en"><img class="ins_others_thumb" src="/storage/thumbs/28127default.jpg" alt="" /></a></div><div class="ins_other_data"><h4><a href="/i/sony_strda3200es_en">SONY STR-DA3200ES [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1459</div><div class="clear"></div></div><div class="ins_others_list_item"><div class="ins_other_thumb"><a href="/i/sony_strda3100es_en"><img class="ins_others_thumb" src="/storage/thumbs/28126default.jpeg" alt="" /></a></div><div class="ins_other_data"><h4><a href="/i/sony_strda3100es_en">SONY STR-DA3100ES  [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1146</div><div class="clear"></div></div><div class="ins_others_list_item"><div class="ins_other_thumb"><a href="/i/sony_strda3000es_en"><img class="ins_others_thumb" src="/storage/thumbs/28125default.jpeg" alt="" /></a></div><div class="ins_other_data"><h4><a href="/i/sony_strda3000es_en">SONY  STR-DA3000ES  [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1139</div><div class="clear"></div></div><div class="ins_others_list_item"><div class="ins_other_thumb"><a href="/i/sony_strda2es_en"><img class="ins_others_thumb" src="/storage/thumbs/28124default.jpeg" alt="" /></a></div><div class="ins_other_data"><h4><a href="/i/sony_strda2es_en">SONY STR-DA2ES [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1196</div><div class="clear"></div></div><div class="ins_others_list_item"><div class="ins_other_thumb"><a href="/i/sony_strda2100es_en"><img class="ins_others_thumb" src="/storage/thumbs/28123default.jpeg" alt="" /></a></div><div class="ins_other_data"><h4><a href="/i/sony_strda2100es_en">SONY STR-DA2100ES  [EN]</a></h4><strong>Od:</strong> <a href="#">manop</a><br/><strong>Liczba wyświetleń:</strong> 1201</div><div class="clear"></div></div></div></div><a href="javascript:void(0);" onclick="show_prev_ins();"><img src="/media/img/button_up.jpg" class="left" alt=""/></a><a href="javascript:void(0);" onclick="show_next_ins(20634);"><img src="/media/img/button_down.jpg" class="right" alt=""/></a><div class="clear"></div></div>
+<div class="clear"></div>
+
+<div id="dialogViolationRules" class="center" style="display:none;"><textarea id="ViolationRulesMsg" cols="75" rows="8"></textarea></div>    
+
+
+</div>
+</div><div id="footer"><table style="width:100%"><tr><td style="width:18%;"><h4>INFORMACJE O NAS</h4><a href="/o_instrukcji/">o instrukcji</a><br/><a href="/blog/">blog</a><br/><!-- <a href="/ekipa">ekipa</a><br/> --><a href="/kontakt/">kontakt</a></td><td style="width:13%;"><h4>BONUSY</h4><a href="/bonusy/">iPunkty</a><br/><a href="/konkursy/">konkursy</a><br/><a href="/gry/game/">gra z nagrodami</a><br/><a href="/s/lider_miesiaca/">lider miesiąca</a><br/><!-- <a href="/rozrywka">rozrywka</a> --></td><td style="width:19%;"><h4>OFERTA DLA FIRM</h4><a href="/oferta_dla_firm/">instrukcja</a><br/><!-- <a href="/akcje_instrukcjowe">akcje instrukcjowe</a><br/> --><!-- <a href="/pozycjonowanie">pozycjonowanie</a><br/> --><!-- <a href="/uslugi_brokerskie">usługi brokerskie</a> --></td><td style="width:15%;"><h4>WSPÓŁPRACA</h4><!-- <a href="/wspolpraca_z_nami">współpraca z nami</a><br/>--><a href="/oferty_pracy">oferty pracy</a><br/><a href="/s/download">download</a><br/><!--<a href="/reklama_w_portalu">reklama w portalu</a><br/><a href="/materialy_dla_mediow">materiały dla mediów</a>--></td><td style="width:18%;"><h4>BEZPIECZEŃSTWO</h4><a href="/regulamin/">regulamin</a><br/><a href="/polityka_prywatnosci/">polityka prywatności</a><br/><a href="/polityka_cookies/">polityka cookies</a><br/></td><td style="width:19%;"><h4>POMOC</h4><a href="/jak_dodawac_instrukcje/">jak dodawać instrukcje</a><br/><a href="/rangi_rozpis/">rangi rozpis</a><br/><a href="/pomoc/">FAQ</a></td></tr></table></div><div id="copyright">Copyright &copy; Instrukcja.pl</div>
+
+<div style="position: absolute; top: 145px; right: -150px;width: 120px; height: 800px">
+<script type="text/javascript"><!-- 
+google_ad_client = "ca-pub-1430816775099524"; 
+/* instrukcja3 */ 
+google_ad_slot = "3587733494"; 
+google_ad_width = 120; 
+google_ad_height = 600; 
+//--> 
+</script> 
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+</div>
+</div><div id="SimpleLogin" class="center" style="display:none;"><div id="SimpleLogin_login"><h3>Zaloguj się</h3><form action="/profil/logowanie/?site=i/lg_rh7500_en" method="post" ><table><tr><td><label for="username_simple">Login*:</label></td><td><input type="text" name="username" id="username_simple" size="22" maxlength="50" /></td></tr><tr><td><label for="password_simple">Hasło*:</label></td><td><input type="password" name="password" id="password_simple" size="22" maxlength="50" /></td></tr><tr><td></td><td><input type="submit" class="submit_green" name="submit" value="Login" /></td></tr></table><p class="small_font"><a class="grey_link" href="/profil/przypomnienie/">Zapomniałem hasło</a></p><hr/></form></div><div id="SimpleLogin_join"><h3>Nie masz konta?<br/> Załóż bezpłatne konto.</h3><form action="/profil/rejestracja/" method="post" ><table><tr><td><label for="email">Email*:</label></td><td><input type="text" name="email" id="email" size="22"  maxlength="50" value="" /></td></tr><tr><td><label for="username2">Login*:</label></td><td><input type="text" name="username" id="username2" size="22"  maxlength="50" value="" /></td></tr><tr><td><label for="password2">Hasło*:</label></td><td><input type="password" name="password" id="password2" size="22"  maxlength="50" /></td></tr><tr><td><label for="repassword2">Powtórz hasło*:</label></td><td><input type="password" name="repassword" id="repassword2" size="22"  maxlength="50" /></td></tr></table><p class="center"><input type="submit" class="button" name="submit" value="Zarejestruj się" /></p></form><div class="hint">Szanujemy Twoją prywatność! nigdy bez Twojej zgody nie udostępniamy Twojego adresu osobom trzecim.Tutaj możesz zapoznać się z szczegółami <a href="/polityka_prywatnosci/">polityki prywatności</a>.</div></div><div id="SimpleLogin_info"><h3>Dlaczego warto się zarejestrować?</h3><ul><li>dostęp do potężnej bazy instrukcji, poradników</li><li>pobieranie plików .pdf bez ograniczeń</li><li>możliwość tworzenia podręcznej bazy online</li><li>udział w konkursach</li><li>udział w dyskusjach na forum</li></ul></div><p class="clear"></p><p class="hint">* - pola wymagane</p></div> 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1959045-14");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<script src="http://files.concepto.pl/cookies/cookiePolicy.min.js"></script><script>cookiePolicy('/s/polityka_cookies/');</script></body></html>        

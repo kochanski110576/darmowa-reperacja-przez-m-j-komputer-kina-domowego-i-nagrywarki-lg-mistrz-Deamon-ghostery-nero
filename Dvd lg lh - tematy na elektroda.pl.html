@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2"><script async="" src="http://www.googletagmanager.com/gtm.js?id=GTM-NPL9K7"></script><script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script><script>(function blockPopupsFunc(scriptId, popupBlockMessage, showNotification, extensionId, rules) {
+    var popupAllowedRegex = /^(http(s)?:)?\/\/([^\/]*\.)?(pinterest\.com|twitter\.com|paypal\.com|yahoo\.com|facebook\.com|linkedin\.com|salesforce\.com|amazon\.co|google\.co)/i;
+    var popupAllowHosts = /^http(s):\/\/([^\/]*\.)?(search\.yahoo\.com|linkedin\.com|facebook\.com|drive\.google\.com)/i;
+    var anchorPopupsExcludedHosts = { 'sh.st': true };
+    var popupRegexRules = null;
+    var stndz = {
+        active: true,
+        originalWindowOpen: window.open,
+        originalDocumentCreateElement: document.createElement
+    };
+
+    function isPopup(url) {
+        if (!url)
+            return null;
+
+        if (popupAllowedRegex.test(url))
+            return false;
+
+        if (popupRegexRules == null) {
+            popupRegexRules = [];
+            for (var i = 0; i < rules.length; i++) {
+                popupRegexRules.push(new RegExp(rules[i], "i"));
+            }
+        }
+
+        for (var i = 0; i < popupRegexRules.length; i++) {
+            if (popupRegexRules[i].test(url))
+                return true;
+        }
+
+        if (popupAllowHosts.test(location.href))
+            return false;
+
+        return null;
+    }
+
+    window.open = function() {
+        if (stndz.active == false) {
+            return stndz.originalWindowOpen.apply(window, arguments);
+        }
+
+        var popupArguments = arguments;
+        var openPopupFunc = function() {
+            return stndz.originalWindowOpen.apply(window, popupArguments);
+        };
+
+        var popupUrl = arguments.length >= 1 && arguments[0] && typeof arguments[0] == "string" ? arguments[0] : null;
+        var block = isPopup(popupUrl);
+        if (block) {
+            showPopupNotificationWindow('ad-popup', arguments, openPopupFunc);
+            return {};
+        } else if (block == false) {
+            return openPopupFunc();
+        }
+
+        if (popupUrl && popupUrl.indexOf('data:') == 0) {
+            showPopupNotificationWindow('data-popup', arguments, openPopupFunc);
+            return {};
+        }
+
+        var targetName = arguments.length >= 2 ? arguments[1] : null;
+        if (targetName == '_parent' || targetName == '_self' || targetName == '_top')
+            return openPopupFunc();
+
+        if (!window.event)
+            return openPopupFunc();
+
+        if (popupUrl) {
+            try {
+                if (popupUrl.indexOf("/") == 0 && popupUrl.indexOf("//") != 0)
+                    return openPopupFunc();
+
+                var windowOpenUrl = new URL(popupUrl);
+                if (windowOpenUrl.host.indexOf(window.location.host) > -1 || (windowOpenUrl.host != "" && window.location.host.indexOf(windowOpenUrl.host) > -1))
+                    return openPopupFunc();
+            } catch(e) { }
+        }
+
+        var currentTargetValid = window.event &&
+            window.event.currentTarget &&
+            window.event.currentTarget !== window &&
+            window.event.currentTarget !== document &&
+            window.event.currentTarget !== document.body;
+
+        var targetValid = window.event &&
+            window.event.target &&
+            window.event.target.tagName == 'A' &&
+            window.event.target.href.indexOf('http') == 0;
+
+        if (currentTargetValid || targetValid)
+            return openPopupFunc();
+
+        if (showNotification)
+            showPopupNotificationWindow('not-user-initiated', arguments, openPopupFunc);
+
+        return {};
+    };
+
+    document.createElement = function() {
+        var element = stndz.originalDocumentCreateElement.apply(document, arguments);
+        if (element.tagName == 'A') {
+            var createTime = new Date();
+            var handleAnchorClick = function(event) {
+                if (stndz.active == false)
+                    return;
+
+                if (anchorPopupsExcludedHosts[document.location.host]) {
+                    element.target = "_top";
+                } else {
+                    var now = new Date();
+                    var block = isPopup(element.href);
+                    if (block || (now - createTime < 50 && block == null && window.location.hostname.indexOf(element.hostname || null) == -1)) {
+                        event.preventDefault();
+                        showPopupNotificationWindow('create-link', element.href, function() { element.click(); });
+                    }
+                }
+            };
+
+            element.addEventListener('click', handleAnchorClick, true);
+        }
+
+        return element;
+    };
+
+    window.addEventListener("message", function(event) {
+        switch (event.data.type) {
+            case 'stndz-show-popup-notification':
+                if (window !== window.top || stndz.active == false)
+                    return;
+
+                stndz.stndzPopupActionWindow = event.source;
+                stndz.stndzPopupClicked = function(option) {
+                    stndz.hidePopupNotification();
+                    stndz.stndzPopupActionWindow.postMessage({type: 'stndz-popup-action', option: option}, event.origin);
+                };
+
+                if (stndz.popupNotificationOpen) {
+                    stndz.highlightPopupNotification();
+                } else if (stndz.popupNotificationOpen === false) { // if it was previously opened just show it, the delegate to open the new window was created above
+                    stndz.showPopupNotification();
+                } else {
+                    var notificationElement = createNotificationOnPage();
+
+                    stndz.showPopupNotification = function() {
+                        stndz.popupNotificationOpen = true;
+
+                        notificationElement.style.top = '0px';
+
+                        var hidePopupNotificationId;
+                        stndz.hidePopupNotification = function() {
+                            stndz.popupNotificationOpen = false;
+                            notificationElement.style.top = '-40px';
+                            notificationElement.style.height = '30px';
+                            clearTimeout(hidePopupNotificationId);
+                        };
+
+                        hidePopupNotificationId = setTimeout(stndz.hidePopupNotification, 30 * 1000);
+                        notificationElement.onmouseover = function() {
+                            clearTimeout(hidePopupNotificationId);
+                        };
+                    };
+
+                    var helpOpen = false;
+                    var originalBackground = notificationElement.style.background;
+                    stndz.highlightPopupNotification = function() {
+                        notificationElement.style.background = '#FFFBCC';
+                        setTimeout(function() {
+                            notificationElement.style.background = originalBackground;
+                        }, 1000);
+
+                        notificationElement.style.height = '120px';
+                        helpOpen = true;
+                    };
+
+                    stndz.togglePopupNotificationHelp = function() {
+                        notificationElement.style.height = helpOpen ? '30px' : '120px';
+                        helpOpen = !helpOpen;
+                    };
+
+                    stndz.showPopupNotification();
+                }
+
+                break;
+
+            case 'stndz-popup-action':
+                stndz.stndzPopupAction && stndz.stndzPopupAction(event.data.option);
+                break;
+
+            case 'stndz-popup-update':
+                if (event.data.shutdown && event.data.machineId == popupBlockMessage.machineId && event.data.iframeGuid != popupBlockMessage.iframeGuid) {
+                    stndz.active = false;
+                } else if (event.data.iframeGuid == popupBlockMessage.iframeGuid && event.data.active != null) {
+                    stndz.active = event.data.active;
+                }
+                break;
+        }
+    }, false);
+
+    function showPopupNotificationWindow(blockType, args, openPopupFunc) {
+        if (!showNotification)
+            return;
+
+        stndz.stndzPopupAction = function(option) {
+            popupBlockMessage.arguments = JSON.stringify(args);
+            popupBlockMessage.option = option;
+            window.postMessage(popupBlockMessage, '*');
+
+            if (option == 'once' || option == 'allow') {
+                stndz.active = false;
+                openPopupFunc && openPopupFunc();
+            } else {
+                showNotification = false;
+            }
+        };
+
+        window.top.postMessage({
+            type: 'stndz-show-popup-notification',
+            iframeGuid: popupBlockMessage.iframeGuid,
+            blockType: blockType
+        }, '*');
+
+        window.postMessage({
+            type: 'popup-blocked',
+            iframeGuid: popupBlockMessage.iframeGuid,
+            blockType: blockType,
+            arguments: encodeURIComponent(args)
+        }, '*');
+    }
+
+    function createNotificationOnPage() {
+        var style = document.createElement('style');
+        style.textContent = '.stndz-popup-notification {' +
+        'width: 670px;' +
+        'height: 30px;' +
+        'position: fixed;' +
+        'overflow: hidden;' +
+        'top: -40px;' +
+        'margin: 0 auto;' +
+        'z-index: 2147483647;' +
+        'left: 0px;' +
+        'right: 0px;' +
+        'background: rgb(240, 240, 240);' +
+        'border-radius: 0px 0px 5px 5px;' +
+        'border: solid 1px #999999;' +
+        'box-shadow: 0px 2px 5px #444444;' +
+        'border-top: none; ' +
+        'line-height: 31px;' +
+        'font-size: 12px;' +
+        'font-family: sans-serif;' +
+        'color: #59595c;' +
+        'text-align: center;' +
+        'direction: ltr;' +
+        'transition-duration: 500ms;}' +
+        '.stndz-button {' +
+        'all: unset;' +
+        'padding: 3px 15px !important;' +
+        'border: solid 1px #a4a6aa !important;' +
+        'height: 25px !important;' +
+        'border-radius: 5px !important;' +
+        'background-color: #3058b0 !important;' +
+        'background: linear-gradient(#f5f5f5, #dfdfdf) !important;' +
+        'box-shadow: inset 0px 1px 0px #ffffff, inset 0 -1px 2px #acacac !important;' +
+        'color: #555555 !important;' +
+        'font-size: 12px !important;' +
+        'line-height: 16px !important;' +
+        'font-family: sans-serif !important;' +
+        'text-align: center !important;' +
+        'background-repeat: no-repeat !important;' +
+        'text-decoration: none !important;}' +
+        '.stndz-button:hover{' +
+        'all: unset;' +
+        'background: linear-gradient(#eeeeee, #d1d1d1) !important;' +
+        'text-decoration: none !important;' +
+        'color: #555555 !important;}';
+        document.documentElement.appendChild(style);
+
+        var div = document.createElement('div');
+        div.setAttribute('class', 'stndz-popup-notification');
+        div.innerHTML = '<img src="chrome-extension://' + extensionId + '/views/web_accessible/images/icon.png" style="top: 5px; left: 5px;height: 20px; display: initial;position: absolute;">' +
+        '&nbsp;<b>Site Popup Blocked:</b>' +
+        '&nbsp;&nbsp;<a href="javascript:void(0)" id="stndz-popup-allow-once" class="stndz-button">Allow once</a>' +
+        '&nbsp;&nbsp;<a href="javascript:void(0)" id="stndz-popup-allow" class="stndz-button">Allow always</a>' +
+        '&nbsp;&nbsp;<a href="javascript:void(0)" id="stndz-popup-block" class="stndz-button">Block always</a>' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="stndz-popup-help"><img src="chrome-extension://' + extensionId + '/views/web_accessible/images/help.png" style="opacity: 0.3; position: absolute; top: 7px; display: initial;right: 30px;" /></a>' +
+        '&nbsp;<a href="javascript:void(0)" id="stndz-popup-close"><img src="chrome-extension://' + extensionId + '/views/web_accessible/images/close.png" style="opacity: 0.3; position: absolute; top: 7px; display: initial;right: 7px;" /></a>' +
+        '<br /><div style="line-height: 22px; text-align: left; padding: 0px 5px 0px 5px; font-size: 11px;">The site tried to open a popup and Stands blocked it.' +
+        '<br />if you don\'t trust this site you should click <b>"Block always"</b>, if you do click <b>"Allow always"</b>.' +
+        '<br />If you\'re not sure click <b>"Allow once"</b> which will open the popup and pause popup blocking for the current page visit.' +
+        '<br />You can always change your settings in the application window.</div>';
+        document.body.appendChild(div);
+
+        document.getElementById("stndz-popup-allow-once").addEventListener("click", function(event) { event.preventDefault(); stndz.stndzPopupClicked("once") }, true);
+        document.getElementById("stndz-popup-allow").addEventListener("click", function(event) { event.preventDefault(); stndz.stndzPopupClicked("allow") }, true);
+        document.getElementById("stndz-popup-block").addEventListener("click", function(event) { event.preventDefault(); stndz.stndzPopupClicked("block") }, true);
+        document.getElementById("stndz-popup-help").addEventListener("click", function(event) { event.preventDefault(); stndz.togglePopupNotificationHelp() }, true);
+        document.getElementById("stndz-popup-close").addEventListener("click", function(event) { event.preventDefault(); stndz.hidePopupNotification(); }, true);
+
+        return div;
+    }
+
+    var thisScript = document.getElementById(scriptId);
+    if (thisScript)
+        thisScript.parentElement.removeChild(thisScript);
+
+    try {
+        Object.defineProperty(window,"ExoLoader",{configurable:false,get:function(){return null;},set:function(){return null;}});
+    } catch(e) {}
+})('1330221396612',{"type":"popup-user-action","machineId":"yt7fTP06CKqASjZu4GadoU3aY0xj7MbP1D0F","iframeGuid":"3DegDMalHGs4AwIAugQPJD75lqLFjwP3lQUf"},true, 'lgblnfidahcdcjddiepkckcfdhpknnjh', ["directrev\\.com","tradeadexchange\\.com","liveadexchanger\\.com","interyield\\.","ordingly\\.com","peritas247\\.info","goodbookbook\\.com","word-my\\.com","terraclicks\\.com","tracki112\\.com","popped","ahtamsu\\.ru","startnewtab\\.com","onclickads\\.net","europacash\\.com","wordkeyhelper\\.com","d1110e4\\.se","buzzonclick\\.com","adultadworld\\.com","3wr110\\.net","ads\\.xladzop\\.com","mtagmonetizationc\\.com","ad\\.propellerads\\.com","popmyads\\.com","popunderclick\\.com","pipeaota\\.com","expocrack\\.com","trafficforce\\.com","poprockets\\.info","trustedsurf\\.com","smartnewtab\\.com","wonderlandads\\.com","admediatracker\\.com","n\\d{3}adserv\\.com","adland\\.co","adexc\\.net","buzzadexchange\\.com","104\\.197\\.4\\.220","xmediaserve\\.com","popcash\\.net","adpop-\\d\\.com","adk2x\\.com","adplxmd\\.com","exoclick\\.com","bounceads\\.net","whoads\\.net","onclickpredictiv\\.com","installation\\.club","advertiserurl\\.com","pureadexchange\\.com","adsrvmedia\\.net","linkmyc\\.com","popmycash\\.com","clickppcbuzz\\.com","adsxn\\.com","bestadbid\\.com","clickadu\\.com","adxpansion\\.com","med4ad\\.com","appnord\\.xyz","rutorads\\.com","104\\.197\\.140\\.120","buzzadnetwork\\.com","qrlsx\\.com","pipsol\\.net","prosoftwarepc\\.com","performanceadexchange\\.com","buy-targeted-traffic\\.com","104\\.154\\.237\\.93","tabcontent\\.net","popunder\\.[a-z]{2,4}","popads\\.[a-z]{2,4}","wwwpromoter\\.com","([^\\/\\.]*\\.)([^\\/\\.]*\\.)711\\d*\\.com","isanalyze\\.com","adrunnr\\.com","trackpprofile\\.com","adnetworkperformance\\.com","104\\.197\\.199\\.227","traffic-media\\.co"]);</script><style>div[class*="item-container-obpd"], a[data-redirect*="paid.outbrain.com"], a[onmousedown*="paid.outbrain.com"] { display: none !important; } a div[class*="item-container-ad"] { height: 0px !important; overflow: hidden !important; position: absolute !important; } div[data-item-syndicated="true"] { display: none !important; } .grv_is_sponsored { display: none !important; } .zergnet-widget-related { display: none !important; } </style>
+
+<meta name="msvalidate.01" content="2547A1A4A711FC11C26A686D71F7882B">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Robots" content="INDEX,FOLLOW">
+<meta name="description" content="Tematy o dvd lg lh, Gdzie zaleźc i jak grac polską czcionkę do dvd LG lh t250 ?, dvd lg lh-t6240 - Nie działają wszystkie głośniki, Dvd lg lh-t255, Odtwarzacz dvd lg LH-T551 nie odtwarza i otwiera kieszeń, DVD LG LH-T6240D problemy z zasilaniem."><meta name="keywords" content="dvd, lg, lh, Gdzie, zaleźc, jak, grac, polską, czcionkę, do, dvd, LG, lh, t250, lg, lh-t6240, Nie, działają, wszystkie, głośniki, Dvd, lh-t255, Odtwarzacz, LH-T551, nie, odtwarza, otwiera, kieszeń, forum elektronika, schematy, instrukcje, usterka"><link rel="canonical" href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html"><link rel="next" href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh,100.html">
+<title>Dvd lg lh - tematy na elektroda.pl</title>
+<link rel="stylesheet" type="text/css" href="./Dvd lg lh - tematy na elektroda.pl_files/poszukaj.css">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="http://poszukaj.elektroda.pl/sitemap/sitemap.xml">
+    <script src="./Dvd lg lh - tematy na elektroda.pl_files/jquery.js"></script>
+    <script type="text/javascript">
+        var googletag = googletag || {
+                };
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+
+    <script type="text/javascript">
+        googletag.cmd.push(function() {
+            var doubleBillboardMapping = googletag.sizeMapping().
+            addSize([1020, 600], [[750, 200],[970, 250]]).
+            addSize([0, 0], [[300, 250],[320,50]]).
+            build();
+
+            googletag.defineSlot('/74317539/elektroda.pl', [[300, 450]], 'div-gpt-ad-ti-featured-design').
+            setTargeting('sec', ['tidesigns']).
+            addService(googletag.pubads());
+
+            googletag.defineSlot('/74317539/elektroda.pl', [[300, 600]], 'div-gpt-ad-ti-feature-of-the-week-filmstrip-widget').
+            setTargeting('sec', ['tidesigns']).
+            addService(googletag.pubads());
+
+            googletag.defineSlot('/74317539/elektroda.pl', [[300, 250], [750, 200], [320,50], [970, 250]], 'div-gpt-ad-billboard-doublebillboard').
+            defineSizeMapping(doubleBillboardMapping).
+            addService(googletag.pubads());
+
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+
+        });
+    </script>
+
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-NPL9K7"
+                  height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NPL9K7');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Overlay Mouser panel -->
+<div class="overlay-mouser">
+    <div class="overlay-mouser-cont">
+        <div class="container">
+            <div class="section-a">
+                <a class="view-product-index mouser-product-index-click" href="http://pl.mouser.com/new?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=new&amp;utm_content=text" target="_blank" rel="nofollow">Nowe produkty</a>&nbsp; | &nbsp;
+                <a class="view-product-index mouser-product-index-click" href="http://www.mouser.com/Electronic-Components/" target="_blank" rel="nofollow">Zobacz listę produktów</a>&nbsp; | &nbsp;
+                <a class="close-panel" href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html#" rel="nofollow">Zamknij&nbsp; <i class="fa fa-times-circle"></i></a>
+            </div>
+            <div class="section-b">
+                <a href="http://www.mouser.com/" target="_blank" class="mouser-site-click" rel="nofollow"><img src="./Dvd lg lh - tematy na elektroda.pl_files/mouser-elec-logo.svg" alt="Mouser" title="Mouser" class="mouser-site-click"></a> <span>Przeglądaj produkty</span>
+            </div>
+            <div class="section-c">
+                <ul class="products-list">
+                    <li><a href="http://pl.mouser.com/Circuit-Protection?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=circuitprotection&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Zabezpieczenia</a></li>
+                    <li><a href="http://pl.mouser.com/Connectors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=connectors&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Złącza</a></li>
+                    <li><a href="http://pl.mouser.com/Electromechanical?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=electromec&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Części elektromechaniczne</a></li>
+                    <li><a href="http://pl.mouser.com/Embedded-Solutions?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=embedded&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Wbudowane rozwiązania</a></li>
+                    <li><a href="http://pl.mouser.com/Enclosures?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=enclosures&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Obudowy</a></li>
+                    <li><a href="http://pl.mouser.com/Semiconductors/Engineering-Development-Tools?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=engineering&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Narzędzia programistyczne</a></li>
+                    <li><a href="http://pl.mouser.com/Electromechanical/Industrial-Automation/_/N-5g1y/?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=industrial&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Automatyka przemysłowa</a></li>
+                    <li><a href="http://pl.mouser.com/Optoelectronics/_/N-5g5v/?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=opto&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Optoelektronika</a></li>
+                    <li><a href="http://pl.mouser.com/Passive-Components?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=passive&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Elementy pasywne</a></li>
+                    <li><a href="http://pl.mouser.com/Power?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=power&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Zasilanie</a></li>
+                    <li><a href="http://pl.mouser.com/Semiconductors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=semiconductor&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Półprzewodniki</a></li>
+                    <li><a href="http://pl.mouser.com/Sensors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=sensors&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Czujniki</a></li>
+                    <li><a href="http://pl.mouser.com/Test-Measurement?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=testandmeas&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Aparatura pomiarowa</a></li>
+                    <li><a href="http://pl.mouser.com/Thermal-Management?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=thermal&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Gospodarka cieplna</a></li>
+                    <li><a href="http://pl.mouser.com/Tools-Supplies?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=tools&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Narzędzia i akcesoria</a></li>
+                    <li><a href="http://pl.mouser.com/Wire-Cable?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=wire&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Przewody i kable</a></li>
+                    <li><a href="http://pl.mouser.com/Electronic-Components/?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=electroniccomponents&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Części elektroniczne</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End -->
+<div class="topbar-wrap">
+    <section class="sec-a">
+        <div class="container2">
+            <div class="row clearfix">
+                <div class="top-lside">
+                    <div class="main-logo">
+                        <a href="http://www.elektroda.pl/rtvforum/index.php" rel="nofollow"><i class="ci ci-logo_elektroda"></i></a>
+                    </div>
+                    <div class="main-menu-wrap">
+                        <ul class="the-list">
+                            <li class="simple"><a href="http://www.elektroda.pl/rtvforum/index.php" rel="nofollow">Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class="top-rside">
+                        <!-- Mouser -->
+                        <div class="mouser-section hidden-xs">
+                            <a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html#" class="mouser-dropdown pull-right mouser-open-widget-click mouser-on">
+                                <img src="./Dvd lg lh - tematy na elektroda.pl_files/mouser-elec-logo.svg" alt="Mouser" title="Mouser" class="mouser-open-widget-click">
+                                <span>Szukaj w 4mln produktów</span>
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <!-- End Mouser -->
+                        <ul class="user-box pull-right">
+                            <li>
+                                <a href="http://www.elektroda.pl/rtvforum/login.php?redirect=search.php" rel="nofollow" class="log-in">Zaloguj</a>
+                            </li>
+                            <li>
+                                <a href="http://www.elektroda.pl/rtvforum/profile.php?mode=register" class="sign-up" rel="nofollow">Rejestracja</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+    <div class="content-wrap search-results">
+
+        <section class="head-search">
+            <form class="search-frm-wrap" action="http://www.elektroda.pl/rtvforum/find.php">
+                <input type="text" placeholder="Search" value="dvd lg lh" name="q">
+                <button>Szukaj</button>
+            </form>
+        </section>
+        <section class="billboard">
+            <div id="div-gpt-ad-billboard-doublebillboard">
+                <script type="text/javascript">
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-billboard-doublebillboard'); });
+                </script>
+            </div>
+        </section>
+        <div class="container text-center">
+            <div class="cookie-info">
+                Ta strona używa cookie. Dowiedz się więcej o <a href="http://www.elektroda.pl/rtvforum/faq.php#ciasteczka" rel="nofollow"> celu ich używania i zmianie ustawień cookie w przeglądarce.</a>
+                <a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html#" class="close-cookie-info"><i class="fa fa-times-circle-o"></i></a>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <section class="row">
+                <div class="the-content col-md-8">
+
+                    <h1>dvd lg lh</h1>
+
+                    <div class="results-for col-a col-xs-12 col-sm-9 col-md-9">
+                        Znaleziono około 259 wyników dla: dvd lg lh
+                    </div>
+
+                    <div class="col-b col-xs-12 col-sm-3 col-md-3">
+                        <a href="http://www.elektroda.pl/rtvforum/posting.php?mode=newtopic&amp;f=51" class="bttn" rel="nofollow">Zadaj Pytanie</a>
+                    </div>
+                    <ul class="results-list">
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic918339.html#4690184">Gdzie zaleźc i jak grac polską czcionkę do dvd LG lh t250 ?</a></h2>
+                            <p>Witam. 
+Mam pytanie czy jest możliwośc wgrania polskiej czcionki do odtwarzacza<b> dvd</b> LG lh t250. Jeśli tak to gdzie znajdę taką aktualizację i jak miałbym to zrobic? Proszę o pomoc. Zgóry Dziękuję.
+
+  Przeniesiono z działu VCR VCP<b> DVD</b> DVIX</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">luks20 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 13 Sty 2008 18:37</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 638</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2814721.html#13595371">dvd lg lh-t6240 - Nie działają wszystkie głośniki</a></h2>
+                            <p>Na wstępie chciałbym przeprosić jeżeli temat w niewłaściwym miejscu umieściłem.
+
+Posiadam od dłuższego czasu<b> dvd</b> lg lh-t6240. Gdy słucham radia, to działają wszystkie głośniki (na opcji pln movie). Natomiast gdy mam podłączone<b> dvd</b> do telewizora w opcji AUX (by np: posłuchać muzykę) to automatycznie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Naprawy</span>
+                                <span class="time">Bowwow99 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 12 Maj 2014 19:59</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 555</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic842418.html#4321610">Dvd lg lh-t255</a></h2>
+                            <p>Witam wszystkich mam następujący problem z<b> dvd</b> lg lh-255.
+Problem jest następujący jak włączam dowolny film, bądź radio to w głośnikach słychać normalnie dźwięk oraz mocne stukanie, może któryś z kolegów miał już taki problem za wszelką pomoc dziękuję.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">Mlody2 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 26 Wrz 2007 14:38</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 828</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1418809.html#6971925">Odtwarzacz dvd lg LH-T551 nie odtwarza i otwiera kieszeń</a></h2>
+                            <p>Witam mam problem z<b> dvd</b> lg lh t551 gdy włozę płyte pokręci się jakies 20s i wysówa i tak w kólko nie wiem co robic ?proszę o rady</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">_TIGER_ &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 02 Wrz 2009 17:07</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 2596</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1561599.html#7621768">DVD LG LH-T6240D problemy z zasilaniem.</a></h2>
+                            <p>Witam.
+Poszukuję schematu<b> DVD</b> LG LH-T6240D, choćby nawet tylko zasilacza (przetwornicy), lub pomocy.
+Na czym polega mój problem:
+Okresowo zanika zasilanie mechaniki odtwarzacza i części obwodów, np video też nie działa.
+Reszta procesor sterowanie i końcówki mocy pracują.
+Nie mam żadnego pojęcia...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">patijarek &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 31 Sty 2010 15:59</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 645</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1677015.html#8117702">DVD LG LH-RH760IA Instrukcja obsługi PL</a></h2>
+                            <p><b> DVD</b> LG LH-RH760IA Instrukcja obsługi PL</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Instrukcje VCR DVD i Blu-Ray</span>
+                                <span class="time">Longer1989 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Maj 2010 21:58</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1769</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2759220.html#13314743">LG LH-RH760 - Zawiesza się momentami, nie widzi płyt.</a></h2>
+                            <p>Witam!
+
+Wczoraj otrzymałem<b> DVD</b> LG LH-RH760 oraz kino domowe LG LH-RH760tf i mogłem je sobie zostawić albo zrobić z nim cokolwiek lecz jest małe ale...<b> DVD</b> nie działa jak powinno.
+
+Po podłączeniu do prądu wszystko wydaje się być ok aż do momentu kiedy próbujemy wcisnąć przycisk "Power" który nie zawsze...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Naprawy</span>
+                                <span class="time">KancikV &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 17 Lut 2014 20:32</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 663</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2741767.html#13222727">Lg lh-t255 i mlab solo 7c - Czy istnieje możliwość podłączenia głośników do dvd</a></h2>
+                            <p>Witam, czy istnieje możliwość skutecznego podłączenia głośników (microlab solo7c) do<b> dvd</b> (lg lh-t255)?<b> Dvd</b> posiada wejscie aux in, nie ma aux out, nie ma również wejscia słuchawkowego. Nie mogę korzystać z głośników z zestawu gdyż się zepsuły.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">Fifsss &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 26 Sty 2014 19:10</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 717</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic3201557.html#15660149">LG LH-T6345 - Przygasający wyświetlacz, syczenie przetwornicy.</a></h2>
+                            <p>Witam, mam problem z<b> DVD</b> LG LH-T6345.
+Objawy:<b> dvd</b> jest podłączone do sieci i świeci się dioda stand-by, gdy włączam<b> dvd</b> przyciskiem z pilota gaśnie dioda standy-by; następnie włącza się na chwilę wyświetlacz i powoli przygasa, po chwili zaczyna charakterystycznie syczeć przetwornica (a konkretnie syczenie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Naprawy</span>
+                                <span class="time">Urbanathor &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 16 Maj 2016 20:40</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 297</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2995708.html#14560508">LG - LG LH-D6230D nie umiem dopasować pilota</a></h2>
+                            <p>namierzyłem firmę która sprzedała mi dobrego pilota za rozsądną cenę.
+mrapol.
+
+Pilot działa, można przełączyć na AUX, zmieniać BANDy. 
+
+link do aukcji:</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Co kupić?</span>
+                                <span class="time">pniemiec &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Mar 2015 16:13</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 354</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic417609.html#2118935">Dvd LG + TV Thomson.</a></h2>
+                            <p>Witam.
+
+Mam mały problem, posiadam<b> DVD</b> LG LH -T250SC
+A takze telewizor Thomson, Chcę zroibć tak aby głos z Tv był takze w kinie domowym które posiadam, Dzwiek z<b> dvd</b> jest w głosnikach. Jesli goladam TV i wlaczam funkcje AUX na<b> dvd</b> niestetyt dzwieku brak. Mimo iz mam podlaczone kable (euro do tv i chinch...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">buri147 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 27 Gru 2005 17:26</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 821</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic452123.html#2303480">Nowy firmware do DVD LG LH-T255SD</a></h2>
+                            <p>Mam odtwarzacz<b> DVD</b> LG  LH-T255SD, czy jest możliwość wgrania nowego oprogramowania i gdzie można to znaleść.
+I czy się opłaca.
+Piotr</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">DIGITAL-PRO &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 15 Lut 2006 22:04</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1424</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1212319.html#6075637">Laser do Lg LH-D6230</a></h2>
+                            <p>Poszukuję lasera do<b> DVD</b> Lg  LH-D6230</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Bazar</span>
+                                <span class="time">MORTEM &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 30 Sty 2009 11:59</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 2928</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1290644.html#6435922">Nie działa subwoofer w LG LH-D6230</a></h2>
+                            <p>Posiadam odtwarzacz<b> DVD</b> LG LH-D6230.
+  
+
+
+Gdy podlaczylem go do telewizora wszystkie glosniki i subwoofer dziala poprawnie, gdyz jest opcja testowania sprzetu.
+Świadczy to tym ze subwoofer nie jest zepsuty.
+Po podlaczeniu do komputera subwoofer w ogóle nie dziala, tzn nie odtwarza tonow niskich,...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">Zwulik &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Kwi 2009 14:16</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1522</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1425459.html#7003094">DVD LG LH-T255-brak foni</a></h2>
+                            <p>Kino domowe LG LH-T255.Po właczeniu słychać szum w głośnikach który po pewnym czasie zanika.Dodatkowy objaw to nie wysuwa szufladki na płyte.Jaka może być przyczyna?</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">misiaczek2504 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 10 Wrz 2009 17:32</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 817</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2368177.html#11255751">LG LH-CX245Y - Brak dźwięków na wyjściu</a></h2>
+                            <p>Witam,
+
+W<b> dvd</b> LG LH-CX245Y nie mam dźwięku na wyjściu (kino domowe). Na złączu SCART dźwięk jest.
+Po rozkręceniu okazuje się, że wzmacniacz nie ma zasilania (brak napięcia z zasilacza na wtyku po lewej, piny 1-3 -&gt; powinno być 36V).
+
+Na elemencie KA5Q0565RT:
+pin 1: 340V
+pin 3: 9-14V
+
+Zauważyłem...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">scooby117 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 28 Sie 2012 18:38</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 768</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic688588.html#3543335">DVD LG T6245D</a></h2>
+                            <p>Witam
+Czy<b> dvd</b> lg    LH-T6245d można przerobić na divixy?
+proszę o informacje czy jest taka możliwość</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">marco64 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 12 Lut 2007 12:25</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 2934</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2138503.html#10154144">[Kupię] Kupię laser do DVD LG</a></h2>
+                            <p>Kupię laser z mechaniką do<b> DVD</b> LG  LH-T561 model lasera SOH DL3EG. Z tego co znalazłem wszyscy mają bez mechaniki.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Bazar</span>
+                                <span class="time">btomko &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 18 Lis 2011 20:31</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 615</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1062967.html#5368393">LG DVD/CD RECEIVER LH-T250SC, brak głosu z AUX i Radia</a></h2>
+                            <p>Witam serdecznie, od razu z samego początku zaznaczę iż jestem zielony jeżeli chodzi o tego typu sprzęt i zapytanie na które odpowiedź oczekuję jest mi potrzebne w celach informacyjnych...
+
+A mianowicie:
+Posiadam odtwarzacz<b> DVD</b> LG LH-T250SC - wszystko podłączone jest od dawna tak samo (głośniki antena...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">MORTEM &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 23 Lip 2008 06:54</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 2120</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic971228.html#4947901">LG LH-W551TB - problem z uruchomieniem napisów z filmów Divx</a></h2>
+                            <p>Witam
+
+Mam problem z odtwarzaczem<b> DVD</b> z kina LG LH-W551TB
+Filmy w formacie Divx czyta bez kłopotu, natomiast nie można podłączyć pod  film napisów w formacie txt (DVD wg instrukcji czyta ten standard)
+Szukałem w internecie jakis informacji ale niestety nic nie ma.
+Na stronie LG nie ma także firmaware...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">_akir_ &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Mar 2008 10:54</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1181</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2341269.html#11123043">Magnetowid LG LH-CX245y - combo nie przegrywa płyty DVD na VHS</a></h2>
+                            <p>Witam
+
+Usterka dotyczy magnetowidu jak w temacie. Problem polega dokładnie na tym że podczas odtwarzania płyty<b> DVD</b> chcąc przegrać ją na kasetę VHS, film z<b> DVD</b> dalej odtwarzany normalnie, jednak głowica w magnetowidzie ciągle się jak by rozpędza i nie może nabrać stabilnych obrotów. Pierwsze co zrobiłem...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">93czarny93 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 19 Lip 2012 16:30</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 791</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1180586.html#5919310">LG LH-T551TB do komputera</a></h2>
+                            <p>Witam
+Niedawno zakupiłem kino domowe LG LH-T551TB, wygląda ono mniej więcej tak
+   i mam problem z nim, próbowałem na wszystkie sposoby podłaczyć do komputera i nie wiem jak to zrobić...
+Chodzi mi ogólnie o to abym mógł np włączyć winampa na komputerze i słuchać muzyki w głosnikach przy kinie domowym...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Nagłośnienie Domowe</span>
+                                <span class="time">Problemek &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 29 Gru 2008 17:47</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 876</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1388281.html#6866506">LG LH 2000 - czy ten model wystarczy m.in. do Cyfry+ ?</a></h2>
+                            <p>Wielka prośba :) 
+Zastanawiam się czy wystarczy TV  LG LH 2000 - 32 " do odbioru sygnału z Cyfry+ ( nie HD ) i anteny dachowej (TV naziemna), czasami oglądanie<b> DVD</b>, ponieważ ten TV ma "tylko" HDReady, natomiast inne modele LH3000 lub LH4000 sa już FullHD.
+Zastanawiam się czy "pakować się " w FullHD.
+Nie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Co kupić?</span>
+                                <span class="time">LOCOLOCO &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 07 Sie 2009 23:57</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 2374</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2117131.html#10057530">Kino domowe lg LH-T250SC po włączeniu do prądu wyświetla komunikat DVD / VCD</a></h2>
+                            <p>Witam mam taki problem z kinem domowym LG LH-T250SC po włączeniu do prądu wyświetla tylko komunikat DVD/VCD i nic po za tym. Czyli nie można przełączyć na AV lub AUX. Czy ktoś mógłby mi podpowiedzieć, czego jest to przyczyna i jak ją usunąć???</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">piotrek7j87 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 23 Paź 2011 16:24</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 942</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic145830.html#704068">Odczyt płyt nagrywanych domowym sposobem w DVD LG</a></h2>
+                            <p>Co zrobić aby<b> DVD</b> LG model 5353 oraz drugie LG LH-D6230 odtwarzały wszystkie płyty<b> dvd</b> ?? Jak sciągnąć zabezpieczenia z odtwarzacza  :?:</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Rafal23 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 19 Lip 2005 19:27</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 1223</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic422906.html#2146283">LG LH-T250SC - biały szum. Czy to jest wada fabryczna?</a></h2>
+                            <p>Witam,
+
+Od niedawna jestem posiadaczem kina domowego LG LH-T250SC i poszukuję
+kogoś kto posiada ten sam model.
+
+Problem występuje w tunerze FM. Po ustawieniu stacji radiowej i przełączeniu trybu dźwięku na Dolby ProLogicII movie, music lub matrix (przyciskiem sound na pilocie) po pewnym czasie (od...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">maciejorl &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Lis 2006 00:37</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 1220</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic454077.html#2314112">Kino domowe LG LH-D6230 przestało odczytywać płyty DVD.</a></h2>
+                            <p>Moje kino domowe przestało odczytywać płyty<b> DVD</b> natomiast 
+odczytuje mp3, jpg .
+Co może być przyczyną?
+Moje kino domowe to LG LH-D6230 . Czyściłem je już płytą czyszczącą i nic to nie pomogło.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">elektron6 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Lut 2006 11:38</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1709</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic792696.html#4066409">Kino Domowe LG LH-T255SD-brak fonii</a></h2>
+                            <p>Kino Domowe LG LH-T255SD brak fonii tylko szum w głośnikach.
+Tak samo się zachowuje przy<b> DVD</b> jak i przy tunerze i AUX.
+Obraz jest ok.Potrzebuje porady jak sprawdzać po kolei sygnał fonii.
+Posiadam schemat.Może jest ktoś taki co podpowie mi jak to sprawdzić
+co jest uszkodzone.Dziękuje!!!!</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Audio Początkujący</span>
+                                <span class="time">dudi-7 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Paź 2008 12:20</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 2711</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic957777.html#4880342">LG LH-T6240, nie czyta divix-ów, da się coś z tym zrobić?</a></h2>
+                            <p>WITAM
+Posiadam kino domowe  LG LH-T6240  które nie czyta divix-ów czy da sie cos z tym zrobic ?
+słyszałem ze jest możliwość podmiany oprogramowania ?
+Za wszelkie info bede wdzięczny
+
+  Przeniesiono z działu VCR VCP<b> DVD</b> DVIX</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">siwy010 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 06 Mar 2008 19:59</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 996</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1331990.html#6614888">LG LH-CX245Y kino domowe. Szukam schematu lub informacji gdzie mogę znaleźć.</a></h2>
+                            <p>LG LH-CX245Y kino domowe "kombajn", DVD-VCR, tuner...) 
+Szukam schematu lub informacji, linku itp, gdzie mógłbym go znaleźć.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Szukam </span>
+                                <span class="time">lofrank &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 04 Cze 2009 14:40</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1392</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1334176.html#6623070">LG LH-T 6345 problem z odtwarzaniem filmów</a></h2>
+                            <p>Witam!
+Posiadam kino domowe LG LH-T6345 i po prostu nie odtwarza mi filmów divx. Po włożeniu płyty w środku coś strzela, prycha, buczy i koniec. 
+Lecz po włożeniu "oryginalnej" płyty<b> dvd</b> z filmem wszystko ładnie chodzi. 
+Czy to problem z laserem? Czy jednak za odtwarzanie filmów divx jest jakiś element...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">KARP1 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 28 Lut 2011 11:03</span>
+                                <span class="status">Odpowiedzi: 10 &nbsp;&nbsp; Wyświetleń: 2842</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic3069722.html#14892825">TV LG i DVD LG LH-T551SB - jak wymusić głos z dvd na telewizor</a></h2>
+                            <p>Jak połączyć<b> DVD</b> model LG LH-T551SB do nowego telewizora LG 47cali LB5700.
+Jakimi kablami i ustawieniami w telewizorze oraz w<b> DVD</b>. Proszę o pilną pomoc. czy w ogóle da się taki zestaw podłączyć. Proszę nawet, jeżeli jest możliwość, o przesłanie zdjęć z podłączenia.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">Polon_us &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 02 Sie 2015 23:14</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 441</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic872287.html#4472218">Kino domowe LG LH-T250sc - zacinające się filmy + soft</a></h2>
+                            <p>Ta  druga metoda czyli przez kabel jest najpewniejsza i wcale nie tak skomplikowana jak ci się wydaje .Musisz tylko pamiętać aby przed wgraniem nowego softu  zapisać sobie stary oryginalny (jako zabezpieczenie w razie "w")Następnie na wyłączonym<b> dvd</b> podłączyć kabel uruchomić program wcisnąć send a następnie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">tronix_1 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 12 Lis 2007 09:30</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 4152</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic3225432.html#15803222">Podłączenie dvd  LG + telewizor DAEWOO</a></h2>
+                            <p>Witam. Chciałbym "wymusić" dźwięk  aby słuchać programów nadawanych z telewizora DAEWWOO model DLP -32C3FB poprzez<b> DVD</b> LD LH-T551. 
+
+W domu mam 2 telewizory. Główny jest podłączony pod dekoder Vectry, drugi o którym mowa jest pod dekoder i rozgałęziacz do następnego pokoju. 
+Czy mogę słuchać głosu...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">KOCUREK1970 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 14 Lip 2016 16:04</span>
+                                <span class="status">Odpowiedzi: 7 &nbsp;&nbsp; Wyświetleń: 345</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic950033.html#4842170">DVD LG LH-D6230D - problem z głośnikami</a></h2>
+                            <p>Mam<b> DVD</b> jak w temacie. Problem polega na tym, że nie mogę "sztucznie" włączyć systemu 5.1. Gdy włożę płytę z mp3 grają tylko dwa przednie głośniki i subwoofer (stereo)- nie mogę włączyć wszystkich, przy próbie zmiany wyświetla się tylko napis BYPASS. W trybie tuner,<b> DVD</b> i AUX mogę włączyć bez problemu....</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">Łukasz Pawlik &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 24 Lut 2008 20:42</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 617</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1149507.html#5772075">Pytanie dotyczace DVD z amplitunerem i woofer'a</a></h2>
+                            <p>Witam
+
+Ostatnio kupilem<b> dvd</b> LG LH T751 TB, ktore daje na woofer 200w RMS przy 4ohm.
+Mam jeszcze woofer od poprzedniego<b> DVD</b> ktory ma max 140w przy 8ohm.
+Czy ten woofer bedzie dobrze gral na tym amplitunerze??
+
+Z gory THX za odp.
+
+POZDRAWIAM</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Estrada Co Kupić</span>
+                                <span class="time">Seba660 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 23 Lis 2008 00:54</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 347</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1195488.html#5996412">DVD LG LH-T6345 po naprawie zasilacza nie czyta DVD.</a></h2>
+                            <p>Witam!Mam ww model kina domowego i związany z nim problem.Po standardowej naprawie zasilacza(wymiana elektrolitów w zasilaczu-problemy z załączaniem,ewentualnie wyłączanie po załączeniu)nagle przestał czytać<b> DVD</b>.Wypalane na komputerze płyty czyta dobrze problem ma z oryginałami.Może ktoś spotkał się...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Diagnoza</span>
+                                <span class="time">PK2006 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 14 Sty 2009 08:17</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1884</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1260299.html#6296767">Podlaczenie DVD do komputera</a></h2>
+                            <p>Witam mam problem z podłączeniem<b> DVD</b> do komputera.
+Chodzi mi o to żeby muzykę którą włączam na komputerze była słyszana w głośnikach, które są podłączone do odtwarzacza<b> dvd</b> ( LG, LH-D6230). 
+Czy istnieje w ogóle taka możliwość?
+Proszę o pomoc z góry dziękuje ;]</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">Zwulik &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 18 Mar 2009 00:03</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 1519</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1805462.html#8669576">DVD LG LH-T250 problem po zmianie laserka</a></h2>
+                            <p>Sprzęt jak w temacie. W sumie przeczytałem ciut tematów dotyczących zmian głowicy laserowej w<b> DVD</b> i nie bardzo wiem co sądzić o moim przypadku. Generalnie podmieniłem 2 szt lasera i zawsze jakaś wtopa. Pierwszy laser w ogóle nie działał ale tam porysowana była na starcie soczewka, wiec lipa. Przyszedł...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">tik_tak &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 27 Paź 2010 17:41</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1067</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic115575.html#557072">dvd lg zmiana standartu tv</a></h2>
+                            <p>Czy jest możliwa zmiana standartu wyjścia video z ntsc na pal metodą programową.Jest to LG LH-D6230.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Piszczel &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 10 Kwi 2004 20:12</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 1526</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1597933.html#7778423">LG LH-T255, zacinanie się filmów, problem z odtwarzaniem</a></h2>
+                            <p>Witam, 
+miałem problem z <b> DVD</b> LG-T255, obojętnie jaki film chciałem obejrzeć po paru minutach film się zacinał, bez względu na format pliku, bez względu na markę płyty i na rozmiar filmu. Początkowo próbowałem wyregulować laser i już prawie mi się udało ale nagle coś się skopało i byłem już zmuszony...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Diagnoza</span>
+                                <span class="time">kajor85 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 03 Mar 2010 17:13</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 3350</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic337254.html#1704753">DVD LG LH - D6240 uszkodzona dioda .</a></h2>
+                            <p>W<b> DVD</b> jak w temacie uszkodzona jest dioda o symbolu F10U20S na płytce przetwornicy. Czym to można zastąpić lub gdzie dostać oryginał?</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">maryann &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 05 Sie 2005 12:30</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1126</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic686056.html#3530446">DVD LG LH-C6230Y - po nagrzaniu przechodzi w standby</a></h2>
+                            <p>Usterka jak w temacie. 
+Przegrzewa się jeden ze stabilizatorów na 5V. Jak sie okazało ten<b> DVD</b> był naprawiany na gwarancji na tą samą usterkę (pochodził nie cały rok i jest to samo).
+Wstawiłem na wejściu stabilizatorów w szereg rezystor aby ograniczyć moc wydzielaną na samych stabilizatorach. 
+Niby...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">StynkS &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 05 Lut 2007 10:54</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 773</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic719819.html#3700607">dvd lg lh-d6245</a></h2>
+                            <p>Witam
+Na początku naprawiania przetwornica nie chciała się załączyć. Migała czerwona dioda od stand by i słychać było pykanie w przetwornicy. Jedyne napięcia które występowały to: 32V; 9V; 5,6V. Nic się nie grzało. Wymieniłem kondensator C930 2200/10V i nadal bez zmian. Zacząłem sprawdzać obecność napięcia...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Kalvis &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Mar 2007 21:03</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1532</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic722454.html#3714476">dvd LG LH-T255SD odtwarzane formaty</a></h2>
+                            <p>Witam serdecznie. Kumpel posiada w/w kino domowe prosił mnie abym nagrał mu teledyski na płytę<b> DVD</b> jednak teledyski są w rożnych formatach 
+  MPG MPEG avi WMV 
+
+moje pytanie brzmi czy wyżej wymienione formaty zostana u niego odtworzone? 
+Pozdrawiam YABU</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">yabu &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 24 Mar 2007 15:38</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 474</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2139115.html#10156986">[Kupię] taśmę połączeniową 11 pinową do dvd LG LH-T6345</a></h2>
+                            <p>Witam.
+Jak w temacie.
+Kupię taśmę połączeniową 11 pinową która w<b> DVD</b> LG LH-T6345 odpowiada za regulację silnika tacki, przesuwania się lasera, oraz czujnika jego położenia.
+Taśma jest wąska i długa.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Bazar</span>
+                                <span class="time">radiogaga &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 26 Lis 2011 13:06</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 991</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2407806.html#11454984">DVD LG LH-T250SC - Wsad  do flash</a></h2>
+                            <p>Witam. Czy ktoś posiada wsad do flash-a w tym<b> dvd</b>?</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Aktualizacja Firmware</span>
+                                <span class="time">Tomis &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 27 Paź 2012 08:15</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 555</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2490267.html#11887941">[Sprzedam] Amplituner DVD LG LH-D6230D niekompletny</a></h2>
+                            <p>Witam na sprzedaż posiadam sprzęt jak w tytule, braki to : napędu<b> dvd</b>, płytki od tunera radiowego. Wzmacniacz sprawny używany jako do komputera. Może ktoś potrzebuje na części, cena jaka mnie interesuje to 30zł. Mogę wystawić na portalu aukcyjnym. Pozdrawiam</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Audio Bazar</span>
+                                <span class="time">maniek19051 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 04 Lut 2013 18:36</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 936</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1891249.html#9050367">---=== SPIS INSTRUKCJI DVD i Blu-Ray ===---</a></h2>
+                            <p>JVC   
+
+ JVC DR-MH200/DR-MX10/CU-VD40/DR-MH50/DR-M70/... Instrukcja obsługi (pl). 
+
+
+ JVC HR-A590U_A591U Instrukcja obsługi (en) 
+
+
+ JVC HR-D520EE/D521EE Instrukcja obsługi (en) 
+
+
+ JVC HR-D5222A(DK) Instrukcja obsługi (pl) 
+
+
+ JVC HR-E639EE Instrukcja obsługi (en)...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Instrukcje VCR DVD i Blu-Ray</span>
+                                <span class="time">Xylometazolin! &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 24 Sty 2011 15:20</span>
+                                <span class="status">Odpowiedzi: 10 &nbsp;&nbsp; Wyświetleń: 32422</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic377905.html#1912311">Dziwny problem konwerterowanie Avi do DVD</a></h2>
+                            <p>Dostałem zlecenie zeby konwertnąć  koncert zapisany w Avi do formatu<b> DVD</b>, to pestka nie ma sprawy takie żeczy nie raz sie już robiło, zabrałem sie do pracy przy pomocy prog. WinAVI Video Converter v.6.2 konwertną mi pliki Avi na<b> DVD</b>, które później wypaliłem Nero v. 6....(opcja utwurz<b> DVD</b> Video) z prędkością...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Komputery Software</span>
+                                <span class="time">raf_entek &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 21 Paź 2005 17:48</span>
+                                <span class="status">Odpowiedzi: 8 &nbsp;&nbsp; Wyświetleń: 1450</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1174329.html#5887679">Jak podłączyć tak aby dobrze działało ? Dekoder Pace 2221</a></h2>
+                            <p>Witam! To mój pierwszy post. 
+
+Ostatnio zakupiłem Cyfrę + i mój problem jest taki:
+Mam 3 urządzenia:
+- dekoder - posiada 2 EURO (TV i VIDEO), oraz Audio
+- odtwarzacz<b> DVD</b> LG (LH-T751TB) - posiada 1 wyjście EURO 1 wyjście COMPONENT no i jeszcze kilka innych do kamery itp.
+- nagrywarkę DVD/VHS Samsung...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">SAT i DVB-T Serwis</span>
+                                <span class="time">Wujq &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 22 Gru 2008 14:18</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 2891</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2736959.html#13198663">[Sprzedam] DVD LG model LH-T250</a></h2>
+                            <p>Sprzedam uszkodzone kino domowe LG model LH-T250. Kino działało bardzo dobrze aż przestało się włączać. Nic nie świeci, nie działają przyciski.
+Dane kina:
+Odtwarzane formaty: DivX, DVD-VIDEO (PAL/NTSC), DVD-AUDIO, DVD-R/RW, DVD+R/RW, Audio CD (S)VCD, Moc RMS: subwoofer 70 W, centralny 30 W, przednie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Bazar</span>
+                                <span class="time">denis2k1 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Sty 2014 14:48</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1821</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic3048715.html#14774921">Combo DVD/VCR LG DVH-5100X  - brak dżwięku na wszystkich kanałach</a></h2>
+                            <p>Combo, które prawdopodobnie jest podobne w budowie do LG LH-CX247S, LG LH-CX245, 246, jak również produkowane dla Lidla w wersji Targa DVH-5100X.
+Używane z rzadka, parę razy w miesiącu jako wzmacniacz do TV, najpierw parę miesięcy wcześniej, zdarzało  się to raz na jakiś czas, a w zeszłym tygodniu już...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">byklitz222 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 16 Cze 2015 05:45</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 894</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1375641.html#6805921">pomoc  kino domowe LG LHS-T6345 i dvd ferguson DVP 868HD</a></h2>
+                            <p>Witajcie
+Mam następujący problem do tej pory posiadałem kino domowe LG LHS-T6345T wygląda identycznie jak na zdjęciu na tej stronie[url=]Link
+
+Natomiast niedawno kupiłem sobie<b> DVD</b> Fergusona dvp868hd [url=]Link
+
+I tu pojawia się problem bo w LG są wejścia 5.1 na kable głośnikowe  a w fergusonie chinch...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Naprawy</span>
+                                <span class="time">nev7 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 21 Lip 2009 21:08</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 1674</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic3216674.html#15750579">Połączenie kina domowego LG do tv lg</a></h2>
+                            <p>Witam nie wiem czy piszę w dobrym dziale ale mam problem z połączeniem<b> dvd</b> dokładnie LG lh-t250sc do telewizora ten samej marki otóż chciałbym podlaczyc glosniki 5.1 tak aby odbieraly głos z tv. Z tyłu<b> dvd</b> jest wejście aux in czerwone i białe więc kupiłem czincze które podlaczylem z<b> dvd</b>  do wejścia r...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">blacks3bawhite &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 18 Cze 2016 12:38</span>
+                                <span class="status">Odpowiedzi: 13 &nbsp;&nbsp; Wyświetleń: 342</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic455391.html#2492972">Kino domowe LG LH -D6240 - da sie wgrać DIVIX'a</a></h2>
+                            <p>Mam te<b> dvd</b> tylko w wersji wyższej- 6340 , wszystko to samo z wyglądu tylko obsługuje divx .
+Ale kiepsko obsluguje divx,poprostu większość filmów jest nagrywana ze zwęzonym obrazem taki obraz bardziej zwężony niz panoramiczny
+w kompie w playerach jest funkcja panscan która rozciąga obraz i jest ok,
+w...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">krzysieg &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 04 Kwi 2006 18:42</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1410</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic490200.html#2510935">LH-T551TB - zacinają się filmy DVD+R i -R.</a></h2>
+                            <p>Witam. Zacinają mi się filmy DVD+R i -R w odtwarzaczu LG LH-T551TB które chodzą na komputerze i odtwarzaczach stacjonarnych<b> DVD</b> Manta, Panasonic, Philips bez problemu. Sprzedawca zapewniał że takiego problemu nie będzie. Jestem laikiem w tych sprawach więc prószę mi doradzić czy tak powinno być. Czy...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">maxxmaxx &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 16 Lip 2006 12:34</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1235</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic584151.html#3019007">kino domowe LG LH-D6230 czyta tylko płyty VCD</a></h2>
+                            <p>401HC00239 CZY TO JEST TO??
+lh-d6230 panel rcp023c, jak wejsc w tryb aby przestawić regiony??
+
+
+Temat aktualny, wchodzę w tryb serwisowy za pomocą PAUZA oraz 1, 4,7, 2 i co dalej??
+
+MODEL   LG(LV7A0021)
+REGION   2
+CHIP ID  MT1379
+MAIN VER  D210
+SERVO VER  C177
+MICOM VER V3.772
+51 4C 02 EB...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">monter3 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 14 Wrz 2006 11:17</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 2164</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1409296.html#6938469">LG LH-CX245 instrukcja obsługi POLSKI</a></h2>
+                            <p>ODBIORNIK COMBI
+DVD/MAGNETOWID 
+Odbiornik system Combi
+Podręcznik użytkownika 
+MODEL:  LH-CX245 
+Jednostka główna: LH-CX245Y
+głośnik: LHS-CX245T, LHS-CX245W
+
+
+ Jezyk: POLSKI</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Instrukcje VCR DVD i Blu-Ray</span>
+                                <span class="time">Fairgrounds &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 24 Paź 2007 21:46</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1483</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2555216.html#12234331">lg LH-D6245 - Kino domowe LG LH-D6245 Nie włącza się</a></h2>
+                            <p>Witam. Mam problem z kinem domowym (nazwa w temacie) jest to juz moje drugie kino firmy LG z ktorym mam ten sam problem. Gdy prubuje je włączyć słychać jedynie pykniecie w<b> dvd</b> czerwona lampka mignie i nic sie nie dzieje. Czy to możne być powodowane jakimkolwiek zwarciem od głośników? Lub tym ze monitor...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Użytkowy</span>
+                                <span class="time">maciek128gp &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Kwi 2013 13:54</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 1095</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic562260.html#2904604">Pilot do DVD kino domowe LG vell TARGA</a></h2>
+                            <p>Mam takie kombo<b> DVD</b> kino domowe i VCR w tym jeszcze. Model to Targa DVH-5100x i potrzebuje pilota jakiego kolwiek żeby to obsłużyć. Może być uniwersal, ale aby można było po menu poruszać się. A mam na stole z wyglądu i w środku takie samo kombo LG LH-CX247S więc pilot może będzie pasował od LG. Proszę...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Giciomen &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 22 Paź 2006 09:50</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1462</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1330118.html#6607464">Stacjonarna nagrywarka DVD "LG-RH177" - i malinowy</a></h2>
+                            <p>Witam!
+
+Mam problem ze stacjonarną nagrywarką   <b> DVD</b>    -  "LG-RH177" .
+Gdy włączam nagrywarkę, obraz na  "Euro AV1"  jest koloru malinowo-czerwonego.
+Nagrywarka jest połączona z telewizorem ( "LG LH-4000" ) za pomocą kabla EuroScart.
+
+Próbowałem wymiany kabla Euro, jednak to nic nie pomogło.
+Dowiedziałem...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">dawidsab &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 03 Cze 2009 13:58</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1580</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1643710.html#6565984">LG LH-T250 instrukcja obsługi PL</a></h2>
+                            <p>Instrukcja do LG
+
+Do wyjścia AUX w TV podłączyć wejście AUX w<b> DVD</b> i uaktywnić to wejście w<b> DVD</b>.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Instrukcje Audio</span>
+                                <span class="time">jur1 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 23 Maj 2009 19:46</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 4599</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic338886.html#1713321">problem z FIRMWARE do LD LH-D6230..pomocy</a></h2>
+                            <p>Szeregowy
+ 
+
+Mam LG LH-D6230 i mam problem....<b> DVD</b> rozprogramowało się tak,że 2 z 4 głośników nie działają.Potrzebuję nowego oprogramowania,a w necie nie potrafię go znaleźć..Proszę o pomoc...mój mail- madalena_hehe(at)wp.pl.Z góry thx</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">radziobo &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 10 Lis 2005 07:59</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1383</span>
+                            </div>
+                        </li>
+
+
+                            <li class="addon">
+                                <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- elektroda-poszukaj-new-results -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7851664831175719" data-ad-slot="4729655584" data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({
+                                    });
+                                </script>
+                            </li>
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic618704.html#3199754">zestaw kina domowego - zmiana dvd i mały problem</a></h2>
+                            <p>witam
+kolega ma zestaw kina domowego LG LH-D6230D. zestawik ten posiada ładne głośniczki, w wersji pasywnej, gdyż wzmacniacz znajduję się w<b> dvd</b>. 
+jako że powyższy<b> dvd</b> nie obsługuje divx'ów kolega zmienił<b> dvd</b> na Manta Emperor IV 019. i tu pojawia się problem, gdyż chce on zatrzymać głośniki a do manty...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Co kupić?</span>
+                                <span class="time">telerycho &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Sty 2010 20:53</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 1358</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic368773.html#3896169">Kino domowe LG LH-D6245</a></h2>
+                            <p>Przykro mi że tak długo czekałeś. Jestem od niedawna na Elektrodzie. Mam też ten model i interesowałem się tym tematem wcześniej. Teraz moje kino przestało działać, szukałem pomocy i znalazłem twój post (na date nie patrzyłem). A tak apropo Gdyby ktoś z was zechciał mi pomóc to zapraszam do działu Początkujący...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">wizja4 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 22 Maj 2007 10:22</span>
+                                <span class="status">Odpowiedzi: 8 &nbsp;&nbsp; Wyświetleń: 2229</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic925247.html#4723431">LG LH-D6240 - jak wstawić gniazdo COAX-in?</a></h2>
+                            <p>Witam
+
+Posiadam zestaw kina LH-D6240, chciałbym wejść zewnętrznym sygnałem cyfrowym audio, aby korzystać z dekoderów DD / DTS. jest tylko wejście analogowe, lp, można na nich korzystać z pro-logic. 
+
+Jak podłączyć to zewnętrzne gniazdo COAX?
+
+  Przeniesiono z działu VCR VCP<b> DVD</b> DVIX</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">yooras &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 22 Sty 2008 21:50</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 717</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1671818.html#8096503">LG LH-T6240 potrzebny wsad pamięci flash BIN</a></h2>
+                            <p>Witam
+Mam problem z<b> dvd</b> lh-t6240 a mianowicie zawsze działają tylko 2 głośniki, sprawdzałem głośniki i są ok , więc udałem się do fachowca który stwierdził iż jest uszkodzony procesor.
+Procesor jest nowy ale niestety okazało się iż potrzebny jest wsad pamięci flash BIN który jest już niedostępny....
+Jeżeli...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">nastor &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 19 Maj 2010 21:44</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 540</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic771045.html#3956770">DVD&gt;&gt;wzmacniacz (dvd bez wyjścia liniowego)</a></h2>
+                            <p>Witam
+Chiałem podłączyć odtwarzacz (LG LH-T255) pod wzmacniacz i tu się robi problem ponieważ<b> dvd</b> nie ma wyjścia liniowego (wbudowany jest wzmacniacz w niego 5.1), ma tylko wyjścia na głośniczki efektowe. I moje pytanie czy można jakoś zespolić zespolić pasmo (kanał L+sub i kanał P+sub) aby podłączyc...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Audio Serwis</span>
+                                <span class="time">michas &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 12 Cze 2007 22:27</span>
+                                <span class="status">Odpowiedzi: 11 &nbsp;&nbsp; Wyświetleń: 1534</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1415485.html#6956577">Jakie kolumny dobrac do LG ?</a></h2>
+                            <p>Witam zakupiłem<b> dvd</b> bez glosnikow lg
+
+ i mam pytanie jakie kolumny dobrac  czy lepiej  będzie zrobic samemu?
+Jak bym miał robic kolumny to zastanawiałem się nad głosnikami w kształcie prostokątów do kolumn , subwoofer chciałem zrobic na 
+
+ale posłucham rad. (max na 4 kolumny ok +-400zł )</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Estrada Co Kupić</span>
+                                <span class="time">Tomq &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 30 Sie 2009 11:09</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 693</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic364739.html#1845950">Firmware do LG</a></h2>
+                            <p>Witam,
+czy jest możliwość zmiany oprogramowania w<b> DVD</b> LG model LH-D6230? Jesli tak to jak to zrobić i skąd ściągnąć oprogramowanie?</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">dodii &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Wrz 2005 08:15</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 1353</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic422065.html#2143332">Kino domowe LG LH-D6245. Czy istnieje firmware edukacyjne do tego modelu?</a></h2>
+                            <p>Witam i dzieki za odpowiedż !!!Byłem na stronie LG ,inic tam nie ma do mojego modelu, dlatego myślałem że ktoś mi podpowie ,gdzie mam szukać Firmware edukacyjne,które unowoczesniło moj<b> DVD</b>.Zawsze wdzięczny TRojan11 !!!:cry:</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">trojan11 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 03 Sty 2006 19:56</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1281</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic472815.html#2416944">co w LG LH-CX245Y (combo) piszczy ???</a></h2>
+                            <p>witam,
+posiadam kino domowe jak powyżej (dvd+vcr ), i jest mały problem z "piszczeniem". pisk pochodzi z płytki zasilacza, tak myślę (tam dochodzi kabel  230V :D)
+cała płytka jest oznaczona tajemniczym symbolem 6870R6245HD, a na niej znajduje sie układzik oznaczony IC101 ale nie wiem dokładnie jaki,...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Początkujący Serwisanci</span>
+                                <span class="time">Puzon &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 17 Mar 2006 15:42</span>
+                                <span class="status">Odpowiedzi: 7 &nbsp;&nbsp; Wyświetleń: 1599</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic628446.html#3250361">Kino LG LH T6345D - przerwana aktualizacja?</a></h2>
+                            <p>Klient przyniósł kino LG jak w temacie i twierdzi, że padło podczas aktualizacji oprogramowania, ktoś włożył płytkę z softem i wyłączył przed zakończeniem aktualizacji. Płyta z softem rzeczywiście była w środku. Teraz kino włącza się jednak nie ma nic na wyjściu Video i nie rusza płyta. Nie można także...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">jaket &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 04 Gru 2006 20:57</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 1428</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1376402.html#6811496">Kolumny 5.1 +amplituner do 1000-1200zł do dvd fergusona</a></h2>
+                            <p>a może jakiś ampli z oferty fergusona?
+
+
+[url=]Link
+
+lub coś takiego z alledrogo ja mc voice hvr-80
+
+znalazłem bardzo negatywne opinie o tym mc voice więc on odpada
+
+ja chcę się przesiąść  z lg lhs-t6345t 
+
+[url=]Link
+
+fajnie ten zestawik grał gdzie sub miał 60W RMS, a reszta głośniczków...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Estrada Co Kupić</span>
+                                <span class="time">nev7 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 28 Lip 2009 23:52</span>
+                                <span class="status">Odpowiedzi: 18 &nbsp;&nbsp; Wyświetleń: 2959</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1482596.html#7261503">Kino domowe LG nie grają wszystkie głośniki</a></h2>
+                            <p>Witam,
+Dzisiaj mam problem ze swoim kinem domowym (LG LH-T6340). Ma on 5 głośników 1 i subwoofer (czyli 5.1), ale gdy podłączyłem je do swojego komputera, za pomocą kabla chinach i do standardowego gniazda w komputerze (chyba jack), działają tylko dwa głośniki przednie (lewy,prawy) i subwoofer (2.1).
+Dodam,...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Użytkowy</span>
+                                <span class="time">Matey126p &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 12 Gru 2009 18:37</span>
+                                <span class="status">Odpowiedzi: 18 &nbsp;&nbsp; Wyświetleń: 12882</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1494066.html#7345113">LG ht552th-dh Poszukuję soft'u</a></h2>
+                            <p>witaj w klubie ja szukam do LG<b> DVD</b> RECEIVER LH-T760 i jest na prawdę ciężko zdobyć.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Aktualizacja Firmware</span>
+                                <span class="time">damian8324 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 25 Sty 2016 08:33</span>
+                                <span class="status">Odpowiedzi: 67 &nbsp;&nbsp; Wyświetleń: 16557</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2207616.html#10480057">Kino domowe LG LH T551SB ,blokujacy się pilot</a></h2>
+                            <p>Witam.Serwisanci nieautoryzowani nie pomogli mi więc Was pytam.
+Posiadam kino domowe 5.1 LG ,jeden przycisk pilota ( TV ) blokuje/zawiesza cały pilot.Po włączeniu tego przycisku ,już żaden przycisk nie działa na pilocie.Muszę wyłączyć<b> DVD</b> z panelu po czym go znów włączyć na panelu ,dalej pilot nie działa,ale...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Nagłośnienie Domowe</span>
+                                <span class="time">guniak &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 01 Lut 2012 16:47</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 1030</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2223961.html#10598933">Podłączenie audio z TV do DVD probl. z optical</a></h2>
+                            <p>Witajcie ja mam taki problem, chciałem podłączyć dźwięk z telewizora LG 42LE5500-ZA, na kino domowe LG LH-T751TB, wyjściem z TV jack słuchawek i podłączeniu do wejścia chinch w kinie domowym i po przestawieniu na AV1 jest wszystko ok, ale zauważyłem że TV ma wyjście "optical digital audio out" kabelek...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">leszekpo59 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 29 Mar 2012 14:14</span>
+                                <span class="status">Odpowiedzi: 9 &nbsp;&nbsp; Wyświetleń: 3464</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2393674.html#11387304">LG LH-C360SE + Plazma LG P250 - Podłączenie kina domowego do telewizora</a></h2>
+                            <p>Niestety nie. Sam drogą dedukcji doszedłem, że raczej nie będzie możliwe takie podłączenie, temat napisałem bo myslałem, że ktoś napisze o jakichś nieznanych mi przejściówkach.
+
+Zakupiłem inne<b> dvd</b> z portami usb i hdmi i święty spokój.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">jacekRCA &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 11 Paź 2012 18:37</span>
+                                <span class="status">Odpowiedzi: 5 &nbsp;&nbsp; Wyświetleń: 1413</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2517828.html#12032871">LG LH-6340D - Nie wysuwa tacki</a></h2>
+                            <p>Witam 
+Wiem ten temat był poruszany ale mojego przypadku nie znalazłem
+Napięcia mam wszystkie ok oprócz jednego ?
+wymieniłem wszystkie elki po stronie wtórnej :)
+1.  3.3V
+2.  2.1V
+3.  9V
+4  8V ??? 
+7.  5V
+8.  5.6v
+DVD czyta płyty,ale po przełączeniu na np tuner nic nie wyświetla na ekranie...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">artelektron &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 08 Mar 2013 19:13</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 801</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2521411.html#12052105">Ferguson T650i + DVD + TV - dźwięk z DVBT przez kino domowe</a></h2>
+                            <p>ZESTAW:
+tuner DVBT Ferguson T650i 
+kino domowe LG LH-T551
+telewizor LG - nie znam modelu, jest to CRT, wejścia: 2xeuro plus 5 cinch: video Y, Pb, Pr, audio L+R)
+
+Chciałbym podłączyć ten zestaw w ten sposób, żeby dźwięk z tunera DVBT szedł również na głośniki kina domowego. Czy możecie napisać czy...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">kronos 11223344 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 15 Maj 2013 21:45</span>
+                                <span class="status">Odpowiedzi: 20 &nbsp;&nbsp; Wyświetleń: 4260</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic395794.html#2008386">DVD LG LH-D6230  -  "DVD ERROR"</a></h2>
+                            <p>Witam.
+Do zrobienia dostalem kino domowe z <b> DVD</b> LG LH-D6230 w ktorym po wlaczeniu pojawia sie napis "DVD ERROR". Nie raeguje na nacisniecie "open". Jezeli ktos mial podobny problem prosze o pomoz w jego rozwiazaniu.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">radziobo &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 21 Gru 2005 08:51</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 2097</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic574293.html#2968520">Kino domowe LG LH-T6347. Nie czyta płyt DVD. Złe kody.</a></h2>
+                            <p>Jest to sprzęt przywieziony z Ukrainy, dokładnie z Kijowa przez moją znajomą. Jest to sprzęt nowy. Po przywiezieniu do Polski nie chce czytać płyt<b> DVD</b>. Po włożeniu płyty z wypożyczlni wyświetla napis o niewłaściwych kodach. Czy ktoś może wie jak to zlikwidować aby czytał płytki<b> DVD</b>?</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Pablo1964 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 31 Sie 2006 17:50</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 1729</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic708696.html#3646437">Kino domowe  LG LH-T751TB - nie czyta płyt</a></h2>
+                            <p>Witam. 
+Klient twierdził, że<b> DVD</b> miało coraz większe problemy z odczytywaniem płyt<b> DVD</b> (nie wiem czy tez innych) aż w końcu przestało czytać. Podejrzewałem laser - podstawiłem ze sprawnego i to samo. Podmieniłem silnik napędu płyty - to samo, podmieniłem listwe kasera - bez zmian. Sprawdziłem przetwornice,...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">slawnet &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 08 Lis 2007 16:39</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 3253</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic818881.html#4200414">Kino domowe LG LH-6240 - blokuje się</a></h2>
+                            <p>J/w - przy użytkowaniu<b> DVD</b> i próbie wyłączenie nie przechodzi w czuwanie (kolor czerwony diody LED) tylko zapala się na pomarańczowo i nie można nic robić. Jest wtedy zablokowanie. Po wyłączeniu przewodem sieciowym i odczekaniu około 10 min wszystko wraca do normy i<b> DVD</b> działa aż do ponownej próby wyłączenia...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Tedi30 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 21 Sie 2007 23:18</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 906</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic986649.html#5027481">Jak podłączyć głośniki od komputera do kina domowego?</a></h2>
+                            <p>Witam, mam odtwarzacz<b> DVD</b> LG LH-T255SD (od kina domowego) lecz nie mam do niego głośników. Wyjście audio + - zatrzaskowe. I mam pytanie. Czy da się pod to podłączyć głośniki z wyjściem mini-jack?
+Mam 4 głośniki zakończone wtykami mini-jack, które są podłączone do subwoofera, a z subwoofera wychodzą...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags"> Połączenia urządzeń</span>
+                                <span class="time">kudi17 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 14 Kwi 2008 19:26</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 7141</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1741370.html#8395988">Kino Domowe LG LH-T250. Czy głośnik się nie spali?</a></h2>
+                            <p>Bo coś się spali???, no nie wiem standardowe głośniki mam w aucie przy radiu KENWOOD KDC-4047UA, A do tego<b> DVD</b> podpiąć chcę 2x70wat 8Ohm głośniki jeden pod subwoofer a drugi pod byle jaki i się boje o ten subwoofer czy spali się<b> dvd</b> przy słuchaniu czy głośnik:0</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Użytkowy</span>
+                                <span class="time">xxZiomxx96 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 14 Sie 2010 10:38</span>
+                                <span class="status">Odpowiedzi: 9 &nbsp;&nbsp; Wyświetleń: 1376</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic1921671.html#9186653">Kino domowe LG LH-T250SC "no disc".</a></h2>
+                            <p>Sprzęt i problem jak w temacie. Efekt wystąpił po wymianie lasera i dotyczy tylko płyt DVD; CD odtwarza bez problemu. Co ciekawe po podmianie nowego lasera na stary sprzęt marnie ale odtwarza zarówno CD jak i<b> DVD</b>. Po zamontowaniu nowego problem pozostaje jak na początku. Czytałem gdzieś coś o przepełnieniu...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">radiogaga &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 26 Lut 2011 21:25</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 1753</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2653525.html#12760348">stare dvd,a nowy telewizor- jak połączyć?</a></h2>
+                            <p>Witam, 
+posiadam kino domowe LG LH-T250SC bez kabli, dodatkowo mam telewizor Panasonic Smart TX-L42E5E i nie wiem jakie kable i przejściówki mam kupić, żeby mogło to razem zadziałać. W zdjęciach są wszystkie wejścia z telewizora i<b> dvd</b>.
+Proszę o pomoc.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">RTV Użytkowy</span>
+                                <span class="time">Kpc21 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 21 Wrz 2013 22:07</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 2313</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic2904069.html#13994537">DVD LG lh-d6240  - DVD - Wymiana rezystora - czy może być taki?</a></h2>
+                            <p>Dzień dobry.
+
+Spalił mi się rezystor drutowy, cementowy 340/10W.
+W takiej obudowie: (zdjęcie innego rezystora, tylko obudowa taka sama)
+     
+
+Nie mogę nigdzie znaleźć takiego. 
+Czy mogę go wymienić na taki 330/10W?
+(tu również chodzi mi tylko o wygląd)
+     
+
+Może wiecie, gdzie można kupić...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR Początkujący</span>
+                                <span class="time">gilraaen &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 27 Wrz 2014 17:12</span>
+                                <span class="status">Odpowiedzi: 4 &nbsp;&nbsp; Wyświetleń: 915</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic215399.html#1054359">Soft do DVD LG LH D6230. Czy jest coś takiego? Co to daje?</a></h2>
+                            <p>czy istnieje firmware lub inny soft do modelu<b> DVD</b> LG LH D6230 ?? ... jezeli tak to co daje ?? ...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">gw43 &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 20 Lip 2005 21:34</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1387</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic215673.html#1055909">DVD LG LH-T6340. Przy płytach CD słychać jak laser pracuje.</a></h2>
+                            <p>Od niedawna mam LG LH-T6340 i przy odtwarzaniu płyt CD słychać jak laser "pracuje", natomiast przy płytach<b> DVD</b> wszystko jest w najlepszym porządku. Proszę o info czy jest to normalne w przypadku tego odtwarzacza, czy raczej powinienem się zgłosić z tym do serwisu (gwarancja)?
+
+
+Gregor14</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">MORTEM &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 03 Gru 2005 23:18</span>
+                                <span class="status">Odpowiedzi: 9 &nbsp;&nbsp; Wyświetleń: 2450</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic260842.html#1292609">DVD LG LH-D6230 po chwilowym zaniku napięcia przestało odczytywać płyty.</a></h2>
+                            <p>MAM PROBLEM ,PO CHWILOWYM ZANIKU NAPIĘCIA W/W<b> DVD</b> PRZESTAŁO ODCZYTYWAĆ PLYTY, PO CHWILI ODCZYTYWANIA PŁYTY POKAZYJE DISC ERROR,PRZESTAŁO GRAĆ RADIO I NIE DZIAŁA WEJŚCIE AUDIO Z ZEWNĘTRZNYCH ŻRÓDEŁ DŻWIĘKU. W CZYM MOŻE TKWIĆ PROBLEM.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">MORTEM &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 07 Mar 2005 20:17</span>
+                                <span class="status">Odpowiedzi: 3 &nbsp;&nbsp; Wyświetleń: 1589</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic288525.html#1439740">DVD LG LH T6430</a></h2>
+                            <p>Po okolo godzinie od wlaczenia zanika glos, po schlodzeniu
+procesora dzwieku ps9818 wszystko jest ok tzn znow dobrze dziala jakis czas.  Pytanie czy rozpiska wartosci napiec wyjsciowych z zasilacza (naniesiona farba na druku) z tym co ma byc sie zgadza. 
+Ewentualnie prosze o schemat do tego modelu.
+Moze...</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">teorom &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 27 Lis 2005 11:36</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 1814</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic346756.html#1755638">dvd LG lh-d6230</a></h2>
+                            <p>co zrobić by muc odtwarzać filmy w diwixsie</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">gkom &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 18 Lis 2005 10:32</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1063</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic358095.html#1878252">LG LH D-6230 nie czyta vcd?</a></h2>
+                            <p>Mam taki na warsztacie i czyta VCD i CD a nie czyta<b> DVD</b>.Podejrzewam przestawione nastawy w pamieci ale nie wiem jak wejsc w tryb serwisowy i dokonac regulacji
+Pzdr.</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Golkowis &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 06 Paź 2005 18:17</span>
+                                <span class="status">Odpowiedzi: 1 &nbsp;&nbsp; Wyświetleń: 1295</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic370986.html#1878273">DVD LG LH-D6230 nie odczytuje płyt DVD</a></h2>
+                            <p>Nie czyta plyt<b> DVD</b> a odtwarza VCD i CD. Nie moge znalezc zadnej informacji jaka moze byc tego przyczyna.
+Dzieki i pozdrawiam</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Golkowis &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 09 Paź 2005 15:14</span>
+                                <span class="status">Odpowiedzi: 6 &nbsp;&nbsp; Wyświetleń: 2019</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic386038.html#1952324">dvd LG LH-t6345 potrzebna polska instrukcja obsługi</a></h2>
+                            <p>jak wyżej potrzebna instrukcja po polsku bądz jakiś link</p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">Schematu/instrukcji/artykułu</span>
+                                <span class="time">czarunio &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 03 Lis 2005 18:49</span>
+                                <span class="status">Odpowiedzi: 0 &nbsp;&nbsp; Wyświetleń: 999</span>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2><a href="http://www.elektroda.pl/rtvforum/topic389579.html#1969168">Jaki laser do LG LH-D6230</a></h2>
+                            <p>Czy któryś z kolegów wie może jaki laser siedzi w tym<b> DVD</b></p>
+                            <div class="bottom-detail clearfix">
+                                <span class="tags">DVD/VCR/Kamery Serwis</span>
+                                <span class="time">Zdzichu &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> 28 Lis 2005 12:15</span>
+                                <span class="status">Odpowiedzi: 2 &nbsp;&nbsp; Wyświetleń: 1385</span>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                    <div class="pagination-new-front" id="pagination">
+                        <ul>
+                            <li><span class="prev">&lt;</span></li><li class="current"><a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh.html#">1</a></li><li><a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh,100.html" title="Strona numer 2">2</a></li><li><a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh,200.html" title="Strona numer 3">3</a></li><li><a href="http://poszukaj.elektroda.pl/szukaj,dvd-lg-lh,100.html" class="next" title="Następna strona">&gt;</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="msc-box">
+                        <h3>Ostatnio szukano:</h3>
+                        <p>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,magnetofon-szpulowy-usterki.html">magnetofon szpulowy usterki</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,gasnie-pod%C5%9Bwietlenie.html">gasnie podświetlenie</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,dzwoni-po%C5%82aczenia.html">dzwoni połaczenia</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,magnetofon-szpulowy-usterki.html">magnetofon szpulowy usterki</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,projekt-maszyn.html">projekt maszyn</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,demonta%C5%BC-toyota.html">demontaż toyota</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,kroki-step7.html">kroki step7</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,zmywarka-bosch-czujnik.html">zmywarka bosch czujnik</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,gramofon-daniel-1100fs.html">gramofon daniel 1100fs</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,polar-wyczy%C5%9B%C4%87-filtr.html">polar wyczyść filtr</a>
+                            <a href="http://poszukaj.elektroda.pl/szukaj,palnik-ga%C5%9Bnie-amica.html">palnik gaśnie amica</a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-wrap right-ads col-md-4 hidden-xs hidden-sm">
+                    <div class="boombox-content text-right ti" style="position: relative;">
+                        <div id="div-gpt-ad-ti-feature-of-the-week-filmstrip-widget">
+                            <script type="text/javascript">
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-ti-feature-of-the-week-filmstrip-widget'); });
+                            </script>
+                        </div>
+                        <div id="div-gpt-ad-ti-featured-design">
+                            <script type="text/javascript">
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-ti-featured-design'); });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="movable" style="position: relative; top: 0;">
+                            <div class="widgets col-md-12" style="position: absolute;">
+                                <div class="boombox-content text-right">
+                                    <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7851664831175719" data-ad-slot="8711346789"></ins>
+                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+
+<div class="footer-search-results-wrap">
+<div class=" container">
+    <div class="col-md-8 ">
+        <ul>
+            <li><a href="http://www.elektroda.pl/email.html" class="nav" rel="nofollow">Administrator</a></li>
+            <li><a href="http://www.elektroda.pl/rtvforum/staff.php" class="nav" rel="nofollow">Moderatorzy</a></li>
+            <li><a href="http://www.elektroda.pl/rtvforum/faq.php#regulamin_forum" class="nav" rel="nofollow">Regulamin forum</a></li>
+            <li><a href="http://www.elektroda.pl/rtvforum/faq.php#regulamin_ogolny" class="nav" rel="nofollow">Regulamin ogólny</a></li>
+            <li><a href="http://www.elektroda.pl/rtvforum/faq.php#ciasteczka" class="nav" rel="nofollow">Strona używa cookies - informacje</a></li>
+            <li><a href="http://www.elektroda.pl/email.html" class="nav" rel="nofollow">Kontakt</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- Mouser Panel in mobile -->
+<div class="mouser-menu">
+    <div class="visible-sec">
+        <img src="./Dvd lg lh - tematy na elektroda.pl_files/mouser-elec-logo.svg" alt="Mouser" title="Mouser" class="mouser-open-widget-click">&nbsp; Szukaj w 4mln produktów
+    </div>
+    <div class="browse-list-wrap">
+        <div class="view-prod">
+            <a href="http://pl.mouser.com/new?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=new&amp;utm_content=text" class="mouser-product-index-click" target="_blank" rel="nofollow">Nowe produkty</a>
+            <a href="http://www.mouser.com/Electronic-Components/" target="_blank" class="mouser-product-index-click" rel="nofollow">Zobacz listę produktów</a>
+        </div>
+        <div class="browse-prod">Przeglądaj produkty</div>
+
+        <ul class="products-list">
+            <li><a href="http://pl.mouser.com/Circuit-Protection?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=circuitprotection&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Zabezpieczenia</a></li>
+            <li><a href="http://pl.mouser.com/Connectors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=connectors&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Złącza</a></li>
+            <li><a href="http://pl.mouser.com/Electromechanical?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=electromec&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Części elektromechaniczne</a></li>
+            <li><a href="http://pl.mouser.com/Embedded-Solutions?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=embedded&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Wbudowane rozwiązania</a></li>
+            <li><a href="http://pl.mouser.com/Enclosures?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=enclosures&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Obudowy</a></li>
+            <li><a href="http://pl.mouser.com/Semiconductors/Engineering-Development-Tools?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=engineering&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Narzędzia programistyczne</a></li>
+            <li><a href="http://pl.mouser.com/Electromechanical/Industrial-Automation/_/N-5g1y/?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=industrial&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Automatyka przemysłowa</a></li>
+            <li><a href="http://pl.mouser.com/Optoelectronics/_/N-5g5v/?utm_source=elektrodata&amp;utm_medium=dispay&amp;utm_campaign=opto&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Optoelektronika</a></li>
+            <li><a href="http://pl.mouser.com/Passive-Components?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=passive&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Elementy pasywne</a></li>
+            <li><a href="http://pl.mouser.com/Power?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=power&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Zasilanie</a></li>
+            <li><a href="http://pl.mouser.com/Semiconductors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=semiconductor&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Półprzewodniki</a></li>
+            <li><a href="http://pl.mouser.com/Sensors?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=sensors&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Czujniki</a></li>
+            <li><a href="http://pl.mouser.com/Test-Measurement?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=testandmeas&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Aparatura pomiarowa</a></li>
+            <li><a href="http://pl.mouser.com/Thermal-Management?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=thermal&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Gospodarka cieplna</a></li>
+            <li><a href="http://pl.mouser.com/Tools-Supplies?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=tools&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Narzędzia i akcesoria</a></li>
+            <li><a href="http://pl.mouser.com/Wire-Cable?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=wire&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Przewody i kable</a></li>
+            <li><a href="http://pl.mouser.com/Electronic-Components/?utm_source=elektrodata&amp;utm_medium=display&amp;utm_campaign=electroniccomponents&amp;utm_content=text" target="_blank" class="mouser-product-click" rel="nofollow">Części elektroniczne</a></li>
+        </ul>
+    </div>
+</div>
+<!-- End Mouser Panel -->
+
+
+
+</body><iframe allowtransparency="true" frameborder="0" id="abs-top-frame" src="./Dvd lg lh - tematy na elektroda.pl_files/top.html" style="position: fixed !important; z-index: 2147483647 !important; overflow: hidden !important; top: 0px !important; left: 0px !important; right: 0px !important; width: 138px !important; height: 13px !important; max-height: none !important; min-height: 0px !important; margin: 0px auto !important; padding: 0px !important; border: 0px !important; display: block !important; background-color: transparent !important;"></iframe></html>
